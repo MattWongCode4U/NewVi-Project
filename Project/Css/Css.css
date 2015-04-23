@@ -3,7 +3,11 @@
 }
 #techSupport {
 	text-align: center;
+<<<<<<< HEAD
 	font-size: pt;
+=======
+	font-size: 5pt;
+>>>>>>> origin/master
 }
 .navbarLogo {
 	height: 25px;
