@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <title>Drawing Shapes</title>
+	<script>
+	function houseProject() {
+		var house = document.getElementById("houses");
+		var ctx = house.getContext("2d");
+		ctx.strokeStyle = "red";
+		
+		function door() {
+		ctx.strokeRect(120,180,30,70);
+		}
+		
+		function window() {
+		ctx.strokeRect(65,175,40,30);
+		ctx.beginPath();
+		ctx.moveTo(85,175);
+		ctx.lineTo(85,205);
+		ctx.stroke();
+		ctx.closePath();
+		}
+		
+		function windows() {
+		ctx.strokeRect(90,88,15,18);
+		ctx.strokeRect(115,88,15,18);
+		}
+
+		function roof() {
+		ctx.beginPath();
+		ctx.moveTo(100, 50);
+		ctx.lineTo(40, 150);
+		ctx.lineTo(160,150);
+		ctx.lineTo(220,50);
+		ctx.lineTo(100,50);
+		ctx.moveTo(220,50);
+		ctx.lineTo(280,150);
+		ctx.lineTo(167,150);
+		ctx.stroke();
+		ctx.closePath();
+		}
+		
+		function floor() {
+		ctx.beginPath();
+		ctx.moveTo(50,150);
+		ctx.lineTo(50,250);
+		ctx.lineTo(275,250);
+		ctx.lineTo(275,150);
+		ctx.moveTo(167,140);
+		ctx.lineTo(167,250);
+		ctx.stroke();
+		ctx.closePath();
+		}
+
+		function floor2() {
+		ctx.beginPath();
+		ctx.moveTo(120,50);
+		ctx.lineTo(75,80);
+		ctx.moveTo(80,80);
+		ctx.lineTo(80,110);
+		ctx.lineTo(140,110);
+		ctx.moveTo(75,80);
+		ctx.lineTo(140,80);
+		ctx.lineTo(140,110);
+		ctx.moveTo(140,80);
+		ctx.lineTo(180,50);
+		ctx.stroke();
+		ctx.closePath();
+		}
+
+		function pipe() {
+		ctx.beginPath();
+		ctx.moveTo(255,110);
+		ctx.lineTo(255,80);
+		ctx.lineTo(267,80);
+		ctx.lineTo(275,73);
+		ctx.lineTo(263,73);
+		ctx.lineTo(255,80);
+		ctx.moveTo(267,80);
+		ctx.lineTo(267,129);
+		ctx.moveTo(275,73);
+		ctx.lineTo(275,140);
+		ctx.stroke();
+		ctx.closePath();
+		}
+		
+		function assemble() {
+		door();
+		window();
+		windows();
+		roof();
+		floor();
+		floor2();
+		pipe();
+		}
+		
+		assemble();
+		
+
+}
+</script> 
+</head>
+<body onLoad="houseProject()">
+<canvas id="houses" width="300" height="300"></canvas>
+</body>
+</html>
