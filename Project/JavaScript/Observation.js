@@ -22,7 +22,7 @@ function getRandomNumber(){
 }
 
 // draws both boxes
-function drawScreen(){
+function drawObservationPanel(){
     drawLeftBox();
     drawRightBox();
 	drawSlideNumber(slideNumber);

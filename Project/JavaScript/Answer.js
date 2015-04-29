@@ -1,4 +1,4 @@
-function answerFrame() {
+function drawAnswerPanel() {
     var answer = document.getElementById("game");
     var ctx = answer.getContext("2d");
     var w = answer.width;

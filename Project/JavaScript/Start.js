@@ -1,8 +1,5 @@
-// variables
-var score;
-
 // draws the start button
-function startButton() {
+function drawStartButton() {
     // variables
     var canvas = document.getElementById('game');
     var ctx = canvas.getContext('2d');
@@ -19,8 +16,11 @@ function startButton() {
     ctx.font = "bold " + width / 10 + "px Arial";
     ctx.fillText(text, width * 4 / 11, width - width / 8);
 }
-// display the highest score achieved
-function score() {
+/*  
+*   display the highest score achieved
+*   @param highScore highest score
+*/
+function drawHighScore(highScore) {
     // variables
     var canvas = document.getElementById('game');
     var ctx = canvas.getContext('2d');
@@ -33,10 +33,10 @@ function score() {
     // draw score
     ctx.fillStyle = "black";
     ctx.font = "bold " + width / 10 + "px Arial";
-    // ctx.fillText(score, width / 4, width - width / 3)
+    ctx.fillText(highScore, width * 2 / 5, width - width / 3)
 }
 // display the title
-function title() {
+function drawTitle() {
     // variables
     var canvas = document.getElementById('game');
     var ctx = canvas.getContext('2d');
@@ -47,9 +47,12 @@ function title() {
     ctx.font = "bold " + width / 8 + "px Arial";
     ctx.fillText(text, width / 3, width / 3);
 }
-// draw the start panel
-function drawStart() {
-    title();
-    startButton();
-    score();
+/* 
+*   draw the start panel
+*   @param highScore highest score
+*/
+function drawStartPanel(highScore) {
+    drawTitle();
+    drawStartButton();
+    drawHighScore(highScore);
 } 
