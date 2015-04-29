@@ -13,6 +13,11 @@ function getRandomColour(max){
     return colours[Math.floor(Math.random() * (max))];
 }
 
+// returns a random number from 0 - 9 inclusive.
+function getRandomNumber(){
+    return Math.floor(Math.random() * 10);
+}
+
 // draws both boxes
 function drawScreen(){
     drawLeftBox();
@@ -23,18 +28,13 @@ function drawScreen(){
 function drawLeftBox(){
     var canvas = document.getElementById("game");
     var ctx = canvas.getContext("2d");
+    var width = canvas.width;
+    var height = canvas.height;
     
     ctx.lineWidth = 3;
     
-    ctx.beginPath();
-    ctx.moveTo(50,100);
-    ctx.lineTo(50, 250);
-    ctx.lineTo(250,250);
-    ctx.lineTo(250, 100);
-    ctx.closePath();
     ctx.fillStyle = leftBoxColour;
-    ctx.fill();
-    ctx.stroke();
+    ctx.fillRect(width / 8, height / 8, width / 4, height / 4);
     
     leftFillText();
 }
@@ -43,6 +43,8 @@ function drawLeftBox(){
 function leftFillText(){
     var canvas = document.getElementById("game");
     var ctx = canvas.getContext("2d");
+    var width = canvas.width;
+    var height = canvas.height;
     var leftTextColour = getRandomColour(colours.length);
     
     // check if the colour of the text is the same as the colour of the box
@@ -51,27 +53,22 @@ function leftFillText(){
     }
     
     ctx.fillStyle = leftTextColour;
-    ctx.font = '60px san-serif';
+    ctx.font = '60px arial';
     ctx.fontBaseline = 'bottom'
-    ctx.fillText('2',130,180);
+    ctx.fillText(getRandomNumber(),width / 4.75,height / 3.25);
 }
 
 // draws the right box
 function drawRightBox(){
     var canvas = document.getElementById("game");
     var ctx = canvas.getContext("2d");
+    var width = canvas.width;
+    var height = canvas.height;
     
     ctx.lineWidth = 3;
     
-    ctx.beginPath();
-    ctx.moveTo(300,100);
-    ctx.lineTo(300, 250);
-    ctx.lineTo(550,250);
-    ctx.lineTo(550, 100);
-    ctx.closePath();
     ctx.fillStyle = rightBoxColour;
-    ctx.fill();
-    ctx.stroke();
+    ctx.fillRect(width / 2, height / 8, width / 4, height / 4);
     
     rightFillText();
 }
@@ -80,6 +77,8 @@ function drawRightBox(){
 function rightFillText(){
     var canvas = document.getElementById("game");
     var ctx = canvas.getContext("2d");
+    var width = canvas.width;
+    var height = canvas.height;
     var rightTextColour = getRandomColour(colours.length);
     
     // check if the colour of the text is the same as the colour of the box
@@ -88,7 +87,7 @@ function rightFillText(){
     }
     
     ctx.fillStyle = rightTextColour;
-    ctx.font = '60px san-serif';
+    ctx.font = '60px arial';
     ctx.fontBaseline = 'bottom'
-    ctx.fillText('5',400,180);
+    ctx.fillText(getRandomNumber(),width / 1.75,height / 3.25);
 }
