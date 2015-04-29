@@ -16,7 +16,7 @@ function startButton() {
     ctx.strokeRect(width / 5, width - width / 4, width * 3 / 5, width / 5);
     // draw text
     ctx.fillStyle = "white";
-    ctx.font = "bold " + width / 10 + "px serif";
+    ctx.font = "bold " + width / 10 + "px Arial";
     ctx.fillText(text, width * 4 / 11, width - width / 8);
 }
 // display the highest score achieved
@@ -28,11 +28,11 @@ function score() {
     var width = canvas.width;
     // draw text
     ctx.fillStyle = "black";
-    ctx.font = "bold " + width / 10 + "px serif";
+    ctx.font = "bold " + width / 10 + "px Arial";
     ctx.fillText(text, width / 4, width - width / 2);
     // draw score
     ctx.fillStyle = "black";
-    ctx.font = "bold " + width / 10 + "px serif";
+    ctx.font = "bold " + width / 10 + "px Arial";
     // ctx.fillText(score, width / 4, width - width / 3)
 }
 // display the title
@@ -44,7 +44,7 @@ function title() {
     var width = canvas.width;
     // draw text
     ctx.fillStyle = "black";
-    ctx.font = "bold " + width / 8 + "px serif";
+    ctx.font = "bold " + width / 8 + "px Arial";
     ctx.fillText(text, width / 3, width / 3);
 }
 // draw the start panel
