@@ -8,6 +8,9 @@ var leftBoxColour = getRandomColour(colours.length);
 // colour of the right box
 var rightBoxColour = getRandomColour(colours.length);
 
+// slide number
+var slideNumber = 1;
+
 // function returns a random colour
 function getRandomColour(max){
     return colours[Math.floor(Math.random() * (max))];
@@ -22,6 +25,34 @@ function getRandomNumber(){
 function drawScreen(){
     drawLeftBox();
     drawRightBox();
+	drawSlideNumber(slideNumber);
+	drawBoxNumber();
+}
+
+// draws text at top of the canvas
+function drawSlideNumber(current){
+	var canvas = document.getElementById("game");
+    var ctx = canvas.getContext("2d");
+    var width = canvas.width;
+    var height = canvas.height;
+	var text = "Slide " + current;
+	ctx.fillStyle = "black";
+	ctx.font = '50px arial';
+    ctx.fontBaseline = 'bottom'
+    ctx.fillText(text, width / 4, height / 6);
+	current ++;
+}
+
+function drawBoxNumber(){
+	var canvas = document.getElementById("game");
+    var ctx = canvas.getContext("2d");
+    var width = canvas.width;
+    var height = canvas.height;
+	ctx.fillStyle = "black";
+	ctx.font = '40px arial';
+    ctx.fontBaseline = 'bottom'
+    ctx.fillText("Box 1" , width / 8, height / 2.1);
+	ctx.fillText("Box 2" , width / 1.7, height / 2.1);
 }
 
 // draws the left box
@@ -34,7 +65,7 @@ function drawLeftBox(){
     ctx.lineWidth = 3;
     
     ctx.fillStyle = leftBoxColour;
-    ctx.fillRect(width / 8, height / 8, width / 4, height / 4);
+    ctx.fillRect(width / 30, height / 2, width / 2.2, height / 2.2);
     
     leftFillText();
 }
@@ -55,7 +86,7 @@ function leftFillText(){
     ctx.fillStyle = leftTextColour;
     ctx.font = '60px arial';
     ctx.fontBaseline = 'bottom'
-    ctx.fillText(getRandomNumber(),width / 4.75,height / 3.25);
+    ctx.fillText(getRandomNumber(),width / 4.75,height / 1.25);
 }
 
 // draws the right box
@@ -68,7 +99,7 @@ function drawRightBox(){
     ctx.lineWidth = 3;
     
     ctx.fillStyle = rightBoxColour;
-    ctx.fillRect(width / 2, height / 8, width / 4, height / 4);
+    ctx.fillRect(width / 1.95, height / 2, width / 2.2, height / 2.2);
     
     rightFillText();
 }
@@ -89,5 +120,5 @@ function rightFillText(){
     ctx.fillStyle = rightTextColour;
     ctx.font = '60px arial';
     ctx.fontBaseline = 'bottom'
-    ctx.fillText(getRandomNumber(),width / 1.75,height / 3.25);
+    ctx.fillText(getRandomNumber(),width / 1.45,height / 1.25);
 }
