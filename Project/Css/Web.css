@@ -1,10 +1,13 @@
+.body {
+    text-align: center;
+}
 .content {
 	text-align: center;
 }
 .glyphicon {
 	font-size: 20px;
 }
-#techSupport {
+.techSupport {
 	text-align: center;
 	font-size: 9pt;
 }
