@@ -17,7 +17,7 @@ function startButton() {
     // draw text
     ctx.fillStyle = "white";
     ctx.font = "bold " + width / 10 + "px serif";
-    ctx.fillText(text, width / 3, width - width / 8);
+    ctx.fillText(text, width * 4 / 11, width - width / 8);
 }
 // display the highest score achieved
 function score() {
