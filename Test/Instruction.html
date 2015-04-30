@@ -1,30 +1,22 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>NewVi</title>
+		<title>NewVi - Instructions</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-        
-        <!-- Game Code -->
-        <script src="JavaScript/MainThread.js"></script>
-        <script src="JavaScript/CommonFunctions.js"></script>
-        <script src="JavaScript/Start.js"></script>
-        <script src="JavaScript/Observation.js"></script>
-        <script src="JavaScript/Answer.js"></script>
-        <script src="JavaScript/End.js"></script>
-        
-        <!-- External Code -->
+		
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-
-		<!-- Css -->
+		
+        <!--link rel="icon" type="image/icon" href="Images/Display/logo.png" /-->
 		<link rel="stylesheet" type="text/css" href="Css/Web.css"/>
         <link rel="stylesheet" type="text/css" href="Css/Canvas.css"/>
+		
 	</head>
 
-	<body onload = "runGame();">
+	<body>
 		<!--nav bar-->
 		<div class = "navbar navbar-default navbar-static-top">
 			<div class = "navbar-header">
@@ -36,60 +28,46 @@
 				<div class="navbar-brand">
 					<div class = "row">
 						<div class = "col-xs-3">
-							<!--img src = "Images/Display/logo.png" alt = "logo" class = "navbarLogo"-->
+							<!--img src = "Images/Display/logo_tab.png" alt = "logo" class = "navbarLogo"-->
 						</div>
 						<div class = "col-xs-9">
-							<p>NewVi</p>
+							<p>NewVi<p>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class = "collapse navbar-collapse" id = "myNavbar">
 				<ul class = "nav navbar-nav pull-right">
-					<li class = "active"><a href = "Index.html">HOME</a>
-					<li><a href = "Instruction.html">INSTRUCTION</a>
+					<li><a href = "Index.html">HOME</a>
+					<li class = "active"><a href = "Instruction.html">INSTRUCTION</a>
 				</ul>
 			</div>
 		</div>
-
-		<!--jumbotron-->
-		<div class = "jumbotron">
-			<div class = "container">
-				<div class = "row">
-					<div class = "col-sm-1	">
-					</div>
-					<div class = "col-sm-3" style="text-align: center">
-						<!--img src="Images/Display/logo.png" alt="Logo" class = "logo"/-->
-					</div>
-					<div class = "col-sm-7">
-						<h1><span style = "color: orange">New</span>Vi</h1>
-						<p>Developing the <span style = "color: orange">Finest</span> Brain Cells</p>
-					</div>
-					<div class = "col-sm-1">
-					</div>
-				</div>
+        
+        <!-- Instruction -->
+		<div class = "content container">
+			<p>Instructions</p>
+			<div class = "hidden-xs col-lg-12 col-md-12">
+				<img src = "Images/inGame1.png" alt = "screenshot1" />
+			</div>
+			<div class = "visible-xs col-xs-12">
+				<img src = "Images/inGame1Small.png" alt = "screenshot1" />
+			</div>
+			<div>
+				<p>Observe the pictures carefully.<br/>Take note of the colour of the square, colour of the number and what the number is.</p>
+			</div>
+			<br/>
+			<div class = "hidden-xs col-lg-12 col-md-12">
+				<img src = "Images/inGame2.png" alt = "screenshot2" />
+			</div>
+			<div class = "visible-xs col-xs-12">
+				<img src = "Images/inGame2Small.png" alt = "screenshot2" />
+			</div>
+			<div>
+				<p> Read the question carefully.<br/>Press on the button with the best answer before the time runs out.</p>
 			</div>
 		</div>
-        
-        <!-- Canvas -->
-		<div class = "gameframe">
-            <div class = "row">
-                <div class = "col-xs-12">
-                    <canvas id="game" width="300" height="300"></canvas>
-                </div>
-            </div>
-		</div>
-
-		<div id = "homeText" class = "content">
-			<p>
-				NewVi is a hot new brain game that was designed to improve
-				your memory, multi-tasking ability, thinking speed and reaction time.
-				This game is highly addictive and very challenging. Pay attention to the screen
-				and solve the difficult questions. Complete certain task in order and
-				unlock achievement points. Are you smart enough to beat this game?
-			</p>
-		</div>
-
+		
 		<!--Footer-->
 		<div class="navbar navbar-default navbar-static-bottom">
 			<div class = "container">
