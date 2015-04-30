@@ -4,5 +4,5 @@ function clearCanvas() {
     var canvas = document.getElementById("game");
 	var ctx = canvas.getContext("2d");
     // clear canvas
-    ctx.clearRect(0, 0, ctx.width, ctx.height);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 }

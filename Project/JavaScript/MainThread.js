@@ -2,18 +2,37 @@ function runGame() {
     // variables
     var canvas = document.getElementById("game");
 	var ctx = canvas.getContext("2d");
+    var gameState = 0;                              // 0 = startPanel, 1 = observationPanel, 2 = answerPanel, 3 = endPanel
     var currentScore = 0;
     var highScore = 0;
     var level = 1;
     var answerArray = [];
     
     drawStartPanel(highScore);
-    ctx.clearRect(0, 0, 300, 300);
+    clearCanvas();
     drawObservationPanel();
-    ctx.clearRect(0, 0, 300, 300);
+    clearCanvas();
     drawAnswerPanel();
-    ctx.clearRect(0, 0, 300, 300);
+    clearCanvas();
     drawEndPanel();
+    
+    // running the game
+    /*while (true) {
+    
+    }
+    
+    /* State */
+    // change the current state to the next one
+    function changeGameState () {
+        if (gameState == 0)
+            gameState++;
+        else if (gameState == 1)
+            gameState++;
+        else if (gameState == 2)
+            gameState++;
+        else if (gameState == 3)
+            gameState = 0;
+    }
     
     /* Scores */
     // set currentScore to be 0
@@ -35,7 +54,7 @@ function runGame() {
     function clearAnswer() {
         answerArray = [];
     }
-    // add an answer to the answerArray
+    // take an answer generated and add to the answerArray
     function addAnswer(answer) {
         answerArray.push(answer);
     }
