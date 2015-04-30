@@ -8,19 +8,19 @@
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
   <script>
-    // Canvas constructor 
+    // Canvas constructor
     function answerFrame() {
-      // Constructing canvas 
+      // Constructing canvas
       var answer = document.getElementById("answerPanel");
       var ctx = answer.getContext("2d");
-      // width and height of the canvas 
+      // width and height of the canvas
       var w = answer.width;
       var h = answer.height;
-      // Array of all possible color values used in this game 
+      // Array of all possible color values used in this game
       var colors = ["red", "yellow", "blue", "black", "purple", "brown", "cyan", "orange"];
-      // Padding used to adjust position 
+      // Padding used to adjust position
       var pad = 20;
-      //The object to be used to test the user, either 1 or 2 
+      //The object to be used to test the user, either 1 or 2
       var tag = "Box 1";
       // The question Number to test the user in one round
       var slide = "Slide 1";
@@ -64,8 +64,8 @@
       }
 
       /**
-      * Paint the tile with a random color and remove the color from the array 
-      * @param answer If this tile contains the correct answer 
+      * Paint the tile with a random color and remove the color from the array
+      * @param answer If this tile contains the correct answer
       */
       function paint(x, y, w, h, answer) {
         // Receive the random color value
@@ -98,12 +98,12 @@
       }
 
       /**
-      * Paints the tile and a number, 
+      * Paints the tile and a number,
       * if the tile is the correct one, pass 1 to paint function
       */
       function tile1(answerTile) {
-        if (answerTile == 1) {
-          paint((w / 2), (h / 2 + pad), w / 3, h / 3, 1)
+        if (answerTile == 9) {
+          paint((w / 2), (h / 2 + pad), w / 3, h / 3, 1);
         } else {
           paint(w / 2 - w / 3, h / 2 - h / 3 + pad, w / 3, h / 3, 0);
         }
@@ -111,8 +111,8 @@
       }
 
       function tile2(answerTile) {
-        if (answerTile == 2) {
-          paint((w / 2), (h / 2 + pad), w / 3, h / 3, 1)
+        if (answerTile == 7) {
+          paint((w / 2), (h / 2 + pad), w / 3, h / 3, 1);
         } else {
           paint((w / 2), (h / 2 - h / 3 + pad), w / 3, h / 3, 0);
         }
@@ -120,8 +120,8 @@
       }
 
       function tile3(answerTile) {
-        if (answerTile == 3) {
-          paint((w / 2), (h / 2 + pad), w / 3, h / 3, 1)
+        if (answerTile == 10) {
+          paint((w / 2), (h / 2 + pad), w / 3, h / 3, 1);
         } else {
           paint((w / 2 - w / 3), (h / 2 + pad), w / 3, h / 3, 0);
         }
@@ -129,8 +129,8 @@
       }
 
       function tile4(answerTile) {
-        if (answerTile == 4) {
-          paint((w / 2), (h / 2 + pad), w / 3, h / 3, 1)
+        if (answerTile == 1) {
+          paint((w / 2), (h / 2 + pad), w / 3, h / 3, 1);
         } else {
           paint((w / 2), (h / 2 + pad), w / 3, h / 3, 0);
         }
@@ -139,7 +139,7 @@
 
       /**
       * Construct everything, assign the correct answer tile
-      * Reset color array after everything finished constructing 
+      * Reset color array after everything finished constructing
       */
       function assemble() {
         var answerTile = Math.floor((Math.random() * 4) + 1);
@@ -154,7 +154,7 @@
       assemble();
 
       /**
-      * Frame for testing 
+      * Frame for testing
       */
       ctx.rect(0, 0, w, h);
       ctx.stroke();
