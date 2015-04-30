@@ -43,7 +43,8 @@ function getRandomNumber(){
 
 // draws both boxes
 function drawObservationPanel(){
-    chooseBox();
+    clearCanvas();
+	chooseBox();
 	drawLeftBox();
     drawRightBox();
 	drawSlideNumber(slideNumber);
