@@ -96,8 +96,4 @@ function getMousePos(canvas, evt) {
   var rect = canvas.getBoundingClientRect();
   xpos = evt.clientX - rect.left;
   ypos = evt.clientY - rect.top;
-  return {
-    xpos,
-    ypos
-  };
 }

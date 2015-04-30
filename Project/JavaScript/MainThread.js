@@ -14,7 +14,7 @@ function runGame() {
     clearCanvas();
     drawAnswerPanel();
     clearCanvas();
-    drawEndPanel();
+    drawEndPanel(currentScore, highScore);
     
     // running the game
     /*while (true) {
