@@ -43,7 +43,7 @@ function getRandomNumber(){
 
 // draws both boxes
 function drawObservationPanel(){
-    clearCanvas();
+    //clearCanvas();
 	chooseBox();
 	drawLeftBox();
     drawRightBox();
