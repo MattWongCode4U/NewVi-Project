@@ -4,7 +4,8 @@ function runGame() {
 	var ctx = canvas.getContext("2d");
     var currentScore = 0;
     var highScore = 0;
-   
+    var answer = [];
+    
     drawStartPanel(highScore);
     ctx.clearRect(0, 0, 300, 300);
     drawObservationPanel();
@@ -12,4 +13,5 @@ function runGame() {
     drawAnswerPanel();
     ctx.clearRect(0, 0, 300, 300);
     drawEndPanel();
+    
 }
