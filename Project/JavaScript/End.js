@@ -70,7 +70,7 @@ function drawButtons() {
     drawRestartButton();
     drawEndGameButton();
 }
-function init() {
+function drawEndPanel() {
     drawText();
     drawButtons();
 }
