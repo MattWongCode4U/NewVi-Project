@@ -35,6 +35,7 @@ function drawText() {
     ctx.fillText("High Score: " + "" + Highscore, width / 4, width * 3 / 7);
 }
 
+// draw Restart 
 function drawRestartButton() {
     // variables
     var canvas = document.getElementById('game');
@@ -70,31 +71,40 @@ function drawEndGameButton() {
     ctx.font = "bold " + width / 12 + "px Arial";
     ctx.fillText(text, width * 3 / 11, width - width / 8);
 }
+
 function drawButtons() {
     drawRestartButton();
     drawEndGameButton();
+}
+/*
+*
+*
+*
+*
+*/
+function collision(x, y) {
+    var canvas = document.getElementById('game');
+    var context = canvas.getContext('2d');
+
+    canvas.addEventListener('click', function(evt) {
+      
+        function getMousePos(canvas, evt) {
+            var rect = canvas.getBoundingClientRect();
+            x = evt.clientX - rect.left;
+            y = evt.clientY - rect.top;
+        }
+      
+        if(xpos > canvas.width / 1.5 && ypos > canvas.height / 2) {
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            drawObservationPanel();
+        }
+        
+    }, false);
 }
 function drawEndPanel(s_score, h_score) {
     score = s_score;
     Highscore = h_score;
     drawText();
     drawButtons();
-    var canvas = document.getElementById('game');
-    var context = canvas.getContext('2d');
-
-    canvas.addEventListener('click', function(evt) {
-      var mousePos = getMousePos(canvas, evt);
-      if(xpos > canvas.width / 1.5 && ypos > canvas.height / 2) {
-        var message = 'Mouse position: ' + xpos + ',' + ypos;
-        context.clearRect(0, 0, canvas.width, canvas.height);
-        drawObservationPanel();
-      }
-    }, false);
-
-}
-
-function getMousePos(canvas, evt) {
-  var rect = canvas.getBoundingClientRect();
-  xpos = evt.clientX - rect.left;
-  ypos = evt.clientY - rect.top;
+    collision(xpos, ypos);
 }
