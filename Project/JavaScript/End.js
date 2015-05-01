@@ -2,6 +2,7 @@ var score = 0;
 var Highscore =0;
 var xpos;
 var ypos;
+
 // draw "Game Over" and the scores
 function drawText() {
     //variables
