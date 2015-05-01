@@ -44,12 +44,17 @@ function on_mousemove (ev) {
   var linkHeight = width / 9 * 2.1; //70
   var linkWidth = width / 5 * 3; //180
   // Get the mouse position relative to the canvas element.
-  if (ev.layerX || ev.layerX) { //for firefox
-    x = ev.layerX;
-    y = ev.layerY;
-  }
-  x -= canvas.offsetLeft;
-  y -= canvas.offsetTop;
+    if(ev.offsetX) {
+        x = ev.offsetX;
+        y = ev.offsetY;
+    }
+    else if(ev.layerX) {
+        X = ev.layerX;
+        y = ev.layerY;
+    }
+
+    /* do something with mouseX/mouseY */
+
  
   //is the mouse over the link?
   if(x >= linkX && x <= (linkX + linkWidth) &&
