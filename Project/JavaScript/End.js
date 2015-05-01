@@ -96,5 +96,12 @@ function Collision(xposition, yposition) {
         drawObservationPanel();
 
 
+<<<<<<< HEAD
   }, false);
+=======
+function getMousePos(canvas, evt) {
+  var rect = canvas.getBoundingClientRect();
+  xpos = evt.clientX - rect.left;
+  ypos = evt.clientY - rect.top;
+>>>>>>> f0d43f4115ac510592e36aace52acae2ccae5541
 }
