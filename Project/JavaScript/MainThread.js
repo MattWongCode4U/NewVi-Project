@@ -7,7 +7,7 @@ function runGame() {
     var highScore = 0;
     var level = 1;
     var answerArray = [];
-    
+
     drawStartPanel(highScore);
     clearCanvas();
     drawObservationPanel();
@@ -15,12 +15,12 @@ function runGame() {
     drawAnswerPanel();
     clearCanvas();
     drawEndPanel();
-    
+
     // running the game
     /*while (true) {
-    
+
     }
-    
+
     /* State */
     // change the current state to the next one
     function changeGameState () {
@@ -33,7 +33,7 @@ function runGame() {
         else if (gameState == 3)
             gameState = 0;
     }
-    
+
     /* Scores */
     // set currentScore to be 0
     function clearScore() {
@@ -48,7 +48,7 @@ function runGame() {
     function updateScore() {
         currentScore += level;
     }
-    
+
     /* Answer Array */
     // empty the answer array
     function clearAnswer() {

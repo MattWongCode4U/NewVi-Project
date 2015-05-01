@@ -78,26 +78,23 @@ function drawEndPanel(s_score, h_score) {
     Highscore = h_score;
     drawText();
     drawButtons();
-    var canvas = document.getElementById('game');
-    var context = canvas.getContext('2d');
-
-    canvas.addEventListener('click', function(evt) {
-      var mousePos = getMousePos(canvas, evt);
-      if(xpos > canvas.width / 1.5 && ypos > canvas.height / 2) {
-        var message = 'Mouse position: ' + xpos + ',' + ypos;
-        context.clearRect(0, 0, canvas.width, canvas.height);
-        drawObservationPanel();
-      }
-    }, false);
+    Collision(xpos,ypos);
 
 }
 
-function getMousePos(canvas, evt) {
-  var rect = canvas.getBoundingClientRect();
-  xpos = evt.clientX - rect.left;
-  ypos = evt.clientY - rect.top;
-  return {
-    xpos,
-    ypos
-  };
+function Collision(xposition, yposition) {
+  var canvas = document.getElementById('game');
+  var context = canvas.getContext('2d');
+
+  function getMousePos(canvas, evt) {
+    xposition = evt.clientX - rect.left;
+    yposition = evt.clientY - rect.top;
+  }
+  canvas.addEventListener('click', function(evt) {
+
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        drawObservationPanel();
+
+
+  }, false);
 }
