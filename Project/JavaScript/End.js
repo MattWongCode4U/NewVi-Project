@@ -76,29 +76,26 @@ function drawButtons() {
     drawRestartButton();
     drawEndGameButton();
 }
-/*
-*
-*
-*
-*
-*/
-function collision(x, y) {
+// testing
+function test() {
     var canvas = document.getElementById('game');
     var context = canvas.getContext('2d');
-
+    var width = canvas.width;
+    var x;
+    var y;
+    
     canvas.addEventListener('click', function(evt) {
       
-        function getMousePos(canvas, evt) {
-            var rect = canvas.getBoundingClientRect();
-            x = evt.clientX - rect.left;
-            y = evt.clientY - rect.top;
-        }
-      
-        if(xpos > canvas.width / 1.5 && ypos > canvas.height / 2) {
-            context.clearRect(0, 0, canvas.width, canvas.height);
+        x = evt.offsetX;
+        y = evt.offsetY;
+        
+        if (collision(width / 5, width - width / 2, width * 3 / 5, width / 5, x, y)) {
+            clearCanvas();
             drawObservationPanel();
         }
-        
+        else {
+            alert("Not Passed");
+        }
     }, false);
 }
 function drawEndPanel(s_score, h_score) {
@@ -106,5 +103,6 @@ function drawEndPanel(s_score, h_score) {
     Highscore = h_score;
     drawText();
     drawButtons();
-    collision(xpos, ypos);
+    test();
+    //collision(xpos, ypos);
 }
