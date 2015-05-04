@@ -1,0 +1,122 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>NewVi</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+	</head>
+
+	<body onload = "draw()">
+		<!--nav bar-->
+		<div class = "navbar navbar-default navbar-static-top">
+			<div class = "navbar-header">
+				<button type = "button" class = "navbar-toggle" data-toggle = "collapse" data-target = "#myNavbar">
+					<span class = "icon-bar"></span>
+					<span class = "icon-bar"></span>
+					<span class = "icon-bar"></span>
+					<span class = "icon-bar"></span>
+				</button>
+				<div class="navbar-brand">
+					<div class = "row">
+						<div class = "col-xs-3">
+							<!--img src = "Images/Display/logo.png" alt = "logo" class = "navbarLogo"-->
+						</div>
+						<div class = "col-xs-9">
+							<p>NewVi</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class = "collapse navbar-collapse" id = "myNavbar">
+				<ul class = "nav navbar-nav pull-right">
+					<li class = "active"><a href = "Index.html">HOME</a>
+					<li><a href = "Instruction.html">INSTRUCTION</a>
+				</ul>
+			</div>
+		</div>
+
+		<!--jumbotron-->
+		<div class = "jumbotron">
+			<div class = "container">
+				<div class = "row">
+					<div class = "col-sm-1	">
+					</div>
+					<div class = "col-sm-3" style="text-align: center">
+						<!--img src="Images/Display/logo.png" alt="Logo" class = "logo"/-->
+					</div>
+					<div class = "col-sm-7">
+						<h1><span style = "color: orange">New</span>Vi</h1>
+					</div>
+					<div class = "col-sm-1">
+					</div>
+				</div>
+			</div>
+		</div>
+ 		
+ 		<!--Home Page UI with 3 buttons on it.-->
+ 		<canvas id="myCanvas" width="1250" height="340"></canvas>
+ 		<script type="text/javascript">
+
+ 		function start() {
+ 			var canvas = document.getElementById('myCanvas');
+			var ctx = canvas.getContext('2d');
+			var text = "Start";
+			var radius = 100; 
+
+			ctx.fillStyle = "green";
+ 			ctx.beginPath(); 			
+ 			ctx.arc(675, 170, radius, 0, Math.PI * 2);
+  			ctx.closePath(); 
+  			ctx.fill();
+  			ctx.fillStyle = "black";
+  			ctx.font = "bold " + 60 + "px serif";
+			ctx.fillText(text, 610, 188);
+ 		}
+
+ 		function score() {
+ 			var canvas = document.getElementById('myCanvas');
+			var ctx = canvas.getContext('2d');
+			var text = "High";
+			var text1 = "Score";
+			var radius = 100; 
+
+			ctx.fillStyle = "orange";
+ 			ctx.beginPath(); 			
+ 			ctx.arc(275, 170, radius, 0, Math.PI * 2);
+  			ctx.closePath();
+  			ctx.fill();
+  			ctx.fillStyle = "black"; // font color to write the text with
+  			ctx.font = "bold " + 60 + "px serif";
+			ctx.fillText(text, 212, 160);
+			ctx.fillText(text1, 202, 215);
+ 		}
+
+ 		function instruction() {
+ 			var canvas = document.getElementById('myCanvas');
+			var ctx = canvas.getContext('2d');
+			var text = "Info";
+			var radius = 100; 
+
+			ctx.fillStyle = "gray";
+ 			ctx.beginPath(); 			
+ 			ctx.arc(1080, 170, radius, 0, Math.PI * 2);
+  			ctx.closePath();
+  			ctx.fill();
+  			ctx.fillStyle = "black"; // font color to write the text with
+  			ctx.font = "bold " + 60 + "px serif";
+			ctx.fillText(text, 1028, 188);
+ 		}
+
+ 		function draw() {
+ 			start();
+ 			score();
+ 			instruction();
+ 		} 			
+ 		</script>
+	</body>
+</html>
