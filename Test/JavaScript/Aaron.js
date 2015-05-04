@@ -1,8 +1,8 @@
 //variables
 var canvas = document.getElementById("game");
 var ctx;
-var linkText= "Start";
-var inLink = false;
+var startLink = false;
+var soundLink = false;
 
 // display the highest score achieved
 function score() {
@@ -34,13 +34,16 @@ function title() {
     ctx.fillText(text, width / 3, width / 3);
 }
 
+//diplays the start button
 function startButton(){
   canvas = document.getElementById("game");
   var width = canvas.width;
+  var text = 'Start';
   var fontsize = width / 15;
+
   // check if supported
   if(canvas.getContext){
- 
+
     ctx=canvas.getContext("2d");
  
     //clear canvas
@@ -55,24 +58,28 @@ function startButton(){
     //draw the link
     ctx.font= fontsize + 'px Arial';
     ctx.fillStyle = "white";
-    ctx.fillText(linkText, width * 127 / 300, width * 131 / 150);
+    ctx.fillText(text, width * 127 / 300, width * 131 / 150);
  
     //add mouse listeners
     canvas.addEventListener("mousemove", on_mousemove, false);
-    canvas.addEventListener("click", on_click, false);
+    canvas.addEventListener("click", click_to_start, false);
  
   }
 }
 
+//displays the sound button
 function soundButton() {
   canvas = document.getElementById("game");
   ctx = canvas.getContext("2d");
   var image = new Image();
   var width = canvas.width;
+
+  //draws the image on the canvas
   image.onload = function() {
     ctx.drawImage(image, width * 49 / 60, width / 150);
   };
-  image.src = "Images/unmute.png";
+  //image source
+  image.src = "Images/Unmute.png";
 
   //add mouse listeners
   canvas.addEventListener("mousemove", on_mousemove, false);
@@ -85,50 +92,53 @@ function on_mousemove (ev) {
   canvas = document.getElementById("game");
   var width = canvas.width;
 
-  //variables for start mouseover position
+  //variables for start button mouseover position
   var startX = width / 5; //60
   var startY = width * 0.95; //28
   var startWidth = width / 5 * 3; //180
   var startHeight = width / 5; //60
 
-  //variables for start mouseover position
+  //variables for sound button mouseover position
   var soundX = width * 49/60; //245
   var soundY =  width * 3/20; //45
   var soundWidth = width * 3/20; //45
   var soundHeight = width * 2/15; // 40 
 
   // Get the mouse position relative to the canvas element.
-    if(ev.offsetX) {
-        x = ev.offsetX;
-        y = ev.offsetY;
-    }
-    else if(ev.layerX) {
-        X = ev.layerX;
+  if(ev.offsetX) {
+      x = ev.offsetX;
+      y = ev.offsetY;
+
+  } else if(ev.layerX) {
+        x = ev.layerX;
         y = ev.layerY;
     }
 
   //mouseover position for start button
   if(x >= startX && x <= (startX + startWidth) &&
-     y<=startY && y>= (startY-startHeight)){
+     y <= startY && y>= (startY-startHeight)){
       document.body.style.cursor = "pointer";
-      inLink=true;
+      startLink=true;
 
-  //mouseover position for mute/unmute button
+  //mouseover position for sound button
   } else if (x >= soundX && x <= (soundX + soundWidth) &&
-     y<=soundY && y>= (soundY-soundHeight)) {
-    document.body.style.cursor = "pointer";
-    inLink=true;
+     y <= soundY && y>= (soundY - soundHeight)) {
+      document.body.style.cursor = "pointer";
+      soundLink=true;
   }
   else{
       document.body.style.cursor = "";
-      inLink=false;
+      startLink=false;
+      soundLink=false;
   }
 }
  
 //clears and repaints the canvas to the next panel
-function on_click(e) {
-  if (inLink)  {
+function click_to_start(e) {
+  if (startLink)  {
+   //clears the canvas
    ctx.clearRect(0, 0, canvas.width, canvas.height);
+   //draws the question page UI
    drawObservationPanel();
   }
 }
@@ -136,17 +146,20 @@ function on_click(e) {
 //toggle to mute/unmute the sound
 function toggleSound(e) {
   var audio = document.getElementById("background_audio");
-  if(inLink) {
+  if(soundLink) {
+    //if the button is clicked and the audio is paused
     if(audio.paused) {
+      //play the audio if its not playing
       audio.play();
     } else {
+      //pause the audio if its playing
       audio.pause();
     }
   }
 }
 
 // draw the start panel
-function draw() {
+function drawAll() {
     soundButton();
     startButton();
     score();
