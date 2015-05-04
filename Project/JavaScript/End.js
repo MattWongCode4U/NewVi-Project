@@ -76,7 +76,7 @@ function drawButtons() {
     drawRestartButton();
     drawEndGameButton();
 }
-// testing
+/*
 function test() {
     var canvas = document.getElementById('game');
     var context = canvas.getContext('2d');
@@ -97,12 +97,13 @@ function test() {
             alert("Not Passed");
         }
     }, false);
-}
+}*/
 function drawEndPanel(s_score, h_score) {
     score = s_score;
     Highscore = h_score;
     drawText();
     drawButtons();
-    test();
+    
+    //test();
     //collision(xpos, ypos);
 }
