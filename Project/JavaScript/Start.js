@@ -5,7 +5,7 @@ function drawStartButton() {
     var ctx = canvas.getContext('2d');
     var text = "Start";
     var width = canvas.width;
-    
+
     // draw rectangle
     ctx.fillStyle = "green";
     ctx.fillRect(width / 5, width - width / 4, width * 3 / 5, width / 5);
@@ -16,7 +16,7 @@ function drawStartButton() {
     ctx.font = "bold " + width / 10 + "px Arial";
     ctx.fillText(text, width * 4 / 11, width - width / 8);
 }
-/*  
+/*
 *   display the highest score achieved
 *   @param highScore highest score
 */
@@ -47,7 +47,19 @@ function drawTitle() {
     ctx.font = "bold " + width / 8 + "px Arial";
     ctx.fillText(text, width / 3, width / 3);
 }
-/* 
+//  Add end panel actions
+function addStartPanelActions()
+{
+    // variables
+    var canvas = document.getElementById('game');
+    var context = canvas.getContext('2d');
+    var width = canvas.width;
+
+    // start button
+    clickButton(width / 5, width - width / 4, width * 3 / 5, width / 5, function (){drawObservationPanel();});
+
+}
+/*
 *   draw the start panel
 *   @param highScore highest score
 */
@@ -55,4 +67,5 @@ function drawStartPanel(highScore) {
     drawTitle();
     drawStartButton();
     drawHighScore(highScore);
-} 
+    addStartPanelActions();
+}
