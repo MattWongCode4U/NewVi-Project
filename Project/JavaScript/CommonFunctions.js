@@ -32,6 +32,8 @@ function collision(box_x, box_y, width, height, x, y) {
 *   @param f function to be preformed
 */
 function clickButton(box_x, box_y, width, height, f) {
+    var canvas = document.getElementById('game');
+    var context = canvas.getContext('2d');
     var width = canvas.width;
     var x;
     var y;

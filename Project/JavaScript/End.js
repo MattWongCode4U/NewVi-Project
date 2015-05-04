@@ -95,6 +95,14 @@ function test() {
         }
     }, false);
 }*/
+function test()
+{
+    var canvas = document.getElementById('game');
+    var context = canvas.getContext('2d');
+    var width = canvas.width;
+    clickButton(width / 5, width - width / 2, width * 3 / 5, width / 5, function (){drawObservationPanel();});
+    clickButton(width / 5, width - width / 4, width * 3 / 5, width / 5, function (){drawStartPanel();});
+}
 function drawEndPanel(s_score, h_score) {
     var canvas = document.getElementById('game');
     var context = canvas.getContext('2d');
@@ -104,5 +112,5 @@ function drawEndPanel(s_score, h_score) {
     drawText();
     drawButtons();
 
-    //test();
+    test();
 }
