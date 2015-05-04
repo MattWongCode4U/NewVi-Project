@@ -1,8 +1,3 @@
-var score = 0;
-var Highscore =0;
-var xpos;
-var ypos;
-
 // draw "Game Over" and the scores
 function drawText() {
     //variables
@@ -35,7 +30,7 @@ function drawText() {
     ctx.fillText("High Score: " + "" + Highscore, width / 4, width * 3 / 7);
 }
 
-// draw Restart 
+// draw Restart button
 function drawRestartButton() {
     // variables
     var canvas = document.getElementById('game');
@@ -54,6 +49,7 @@ function drawRestartButton() {
     ctx.fillText(text, width * 6 / 17, width * 5 / 8);
 }
 
+// draw end game button
 function drawEndGameButton() {
     // variables
     var canvas = document.getElementById('game');
@@ -72,6 +68,7 @@ function drawEndGameButton() {
     ctx.fillText(text, width * 3 / 11, width - width / 8);
 }
 
+// 
 function drawButtons() {
     drawRestartButton();
     drawEndGameButton();
@@ -100,6 +97,27 @@ function drawButtons() {
     }, false);
 }*/
 
+function test()
+{
+    var canvas = document.getElementById('game');
+    var context = canvas.getContext('2d');
+    var width = canvas.width;
+    clickButton(width / 5, width - width / 2, width * 3 / 5, width / 5, function (){drawObservationPanel();});
+    clickButton(width / 5, width - width / 4, width * 3 / 5, width / 5, function (){drawStartPanel();});
+}
+
+function drawEndPanel(s_score, h_score) {
+    var canvas = document.getElementById('game');
+    var context = canvas.getContext('2d');
+    
+    score = s_score;
+    Highscore = h_score;
+    drawText();
+    drawButtons();
+
+    test();
+}
+
 function audio(){
 	var x = document.getElementById('audio');
 	x.play();
@@ -108,13 +126,3 @@ function audio(){
 /*function restart(){
 	clickButton(width / 5, width - width / 2, width * 3 / 5, width / 5, drawObservationPanel)
 }*/
-
-function drawEndPanel(s_score, h_score) {
-    score = s_score;
-    Highscore = h_score;
-    drawText();
-    drawButtons();
-    
-    //test();
-    //collision(xpos, ypos);
-}
