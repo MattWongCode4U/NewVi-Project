@@ -52,6 +52,18 @@
         ctx.fillStyle = "white";
         ctx.fillText(numChoice, w, h);
       }
+      
+      function printBackground() {
+        ctx.closePath();
+        ctx.beginPath();
+        ctx.fillStyle = colorChoice;
+        if(colorChoice == "black") {
+          ctx.strokeStyle = "white";
+        } else {
+          ctx.strokeStyle = "black";
+        }
+        strokeRect(w/2 - w/3, h/2 - h/3 + pad, )
+      }
 
       /**
       * Get a random number range from 0 to the max index of colors array
@@ -151,24 +163,23 @@
       * if the tile is the correct one, pass 1 to paint function
       */
       function tile1(answerTile,question) {
-        /**
         switch(question) {
           case 1: 
             if (answerTile == 0) {
               paint(w / 2 - w / 3, h / 2 - h / 3 + pad, w / 3, h / 3, 1);
-          } else {
-              paint(w / 2 - w / 3, h / 2 - h / 3 + pad, w / 3, h / 3, 0);
-          }
-              printNum(w / 3 - w/15, h/2 - h/3 + pad + h/3); 
-          }
-          case 2: 
-            if(answerTile == 1) {
-              
             } else {
-              
+              paint(w / 2 - w / 3, h / 2 - h / 3 + pad, w / 3, h / 3, 0);
             }
+              printNum(w / 3 - w/15, h/2 - h/3 + pad + h/3); 
+            }
+          case 2:
             printBackground();
-        } */
+            if(answerTile == 1) {
+              paintNum(w/2 - w/3, h/2 - h/3 + pad, 1);
+            } else {
+              paintNum(w/2 - w/3, h/2 - h/3 + pad, 0);
+            }
+        } 
       }
 
       function tile2(answerTile,question) {
@@ -177,7 +188,7 @@
         } else {
           paint((w / 2), (h / 2 - h / 3 + pad), w / 3, h / 3, 0);
         }
-        printNum(w/2 + w/10, 100);
+        printNum(w/2 + w/10, h/2 + h/10);
       }
 
       function tile3(answerTile,question) {
@@ -190,7 +201,6 @@
       }
 
       function tile4(answerTile,question) {
-        
         if (answerTile == 4) {
           paint((w / 2), (h / 2 + pad), w / 3, h / 3, 1);
         } else {
