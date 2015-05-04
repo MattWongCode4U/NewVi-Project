@@ -7,15 +7,15 @@ function runGame() {
     var highScore = 0;
     var level = 1;
     var answerArray = [];
-    /*
+    
     drawStartPanel(highScore);
-    clearCanvas();
+    /*clearCanvas();
     drawObservationPanel();
     clearCanvas();
     drawAnswerPanel();
     clearCanvas();
     */
-    drawEndPanel(currentScore, highScore);
+    //drawEndPanel(currentScore, highScore);
     
     // running the game
     /*while (true) {
