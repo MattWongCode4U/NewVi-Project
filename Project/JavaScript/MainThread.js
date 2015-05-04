@@ -24,6 +24,7 @@ function runGame() {
     
     /* State */
     // change the current state to the next one
+    /*
     function changeGameState () {
         if (gameState == 0)
             gameState++;
@@ -33,7 +34,7 @@ function runGame() {
             gameState++;
         else if (gameState == 3)
             gameState = 0;
-    }
+    }*/
     
     /* Scores */
     // set currentScore to be 0

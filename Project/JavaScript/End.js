@@ -69,8 +69,7 @@ function drawEndGameButton() {
 }
 
 //  Add end panel actions
-function addEndPanelActions()
-{
+function addEndPanelActions() {
     // variables
     var canvas = document.getElementById('game');
     var context = canvas.getContext('2d');
@@ -91,7 +90,7 @@ function drawEndPanel(s_score, h_score) {
     var canvas = document.getElementById('game');
     var context = canvas.getContext('2d');
     
-    drawEndPanelText();
+    drawEndPanelText(s_score, h_score);
     drawRestartButton();
     drawEndGameButton(s_score, h_score);
 
