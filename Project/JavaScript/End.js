@@ -76,8 +76,8 @@ function drawButtons() {
     drawRestartButton();
     drawEndGameButton();
 }
-/*
-function test() {
+
+/*function test() {
     var canvas = document.getElementById('game');
     var context = canvas.getContext('2d');
     var width = canvas.width;
@@ -91,13 +91,24 @@ function test() {
         
         if (collision(width / 5, width - width / 2, width * 3 / 5, width / 5, x, y)) {
             clearCanvas();
-            drawObservationPanel();
+			audio();
+            //drawObservationPanel();
         }
         else {
             alert("Not Passed");
         }
     }, false);
 }*/
+
+function audio(){
+	var x = document.getElementById('audio');
+	x.play();
+}
+
+/*function restart(){
+	clickButton(width / 5, width - width / 2, width * 3 / 5, width / 5, drawObservationPanel)
+}*/
+
 function drawEndPanel(s_score, h_score) {
     score = s_score;
     Highscore = h_score;
