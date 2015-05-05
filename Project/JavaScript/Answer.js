@@ -286,9 +286,12 @@
 
       function mainThrower(answer, tile) {
         if(answer == tile) {
+          playAudio('correct');
           return true;
+        } else {
+          playAudio('horse');
+          return false;
         }
-        return false;
       }
 
       function addAnswerPanelActions(answer) {
