@@ -16,12 +16,13 @@ function clearCanvas() {
 *   @param y y-coordinate of the clicked point
 */
 function collision(box_x, box_y, width, height, x, y) {
-    if (x < box_x || x > box_x + width)
+    if (x < box_x || x > box_x + width) {
         return false;
-    else if (y < box_y || y > box_y + height)
+    } else if (y < box_y || y > box_y + height) {
         return false;
-    else
+    } else {
         return true;
+    }    
 }
 /*
 *   determines the function to be preformed once a button is clicked
@@ -59,4 +60,51 @@ function clickButton(box_x, box_y, width, height, f) {
 function playAudio(music){
 	var soundclip = document.getElementById(music);
 	soundclip.play();
+}
+
+//displays the sound button
+function drawSoundButton() {
+  canvas = document.getElementById("game");
+  ctx = canvas.getContext("2d");
+  var image = new Image();
+  var width = canvas.width;
+
+  //draws the image on the canvas
+  image.onload = function() {
+    ctx.drawImage(image, width * 49 / 60, width / 150);
+  };
+  //image source
+  image.src = "Images/Unmute.png"; 
+}
+
+//exclusively for the mute button
+function clickToMute(box_x, box_y, width, height, f) {
+    // variables
+    var canvas = document.getElementById('game');
+    var context = canvas.getContext('2d');
+    var x;
+    var y;
+    
+    // add action
+    canvas.addEventListener('click', function(evt) {
+        // position of the mouse click
+        x = evt.offsetX;
+        y = evt.offsetY;
+        
+        // clear canvas and preform action
+        if (collision(box_x, box_y, width, height, x, y)) {
+            //clearCanvas();
+            f();
+        }
+    }, false);
+}
+
+//toggle to mute/unmute the sound
+function toggleSound() {
+    var audio = document.getElementById("background_audio");
+    if(audio.paused) {
+      audio.play();
+    } else {
+      audio.pause();
+    }
 }
