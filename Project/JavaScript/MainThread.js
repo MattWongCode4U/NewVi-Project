@@ -10,7 +10,7 @@ function runGame() {
     
     drawStartPanel(highScore);
     clearCanvas();
-    drawObservationPanel();
+    drawObservationPanel(1);
     /*clearCanvas();
     drawAnswerPanel();
     clearCanvas();

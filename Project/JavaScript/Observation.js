@@ -38,6 +38,16 @@ function drawObservationPanel(slideNumber){
     var box1 = {boxNum: 1, number: randomNumberGenerator(), numberColour: randomColorGenerator(9), backgroundColor: randomColorGenerator(9)};
     var box2 = {boxNum: 2, number: randomNumberGenerator(), numberColour: randomColorGenerator(9), backgroundColor: randomColorGenerator(9)};
 	
+    // check if the colour of the number and the background are the same
+    while (box1.numberColour == box1.backgroundColor)
+    {
+        box1.numberColour = randomColorGenerator(9);
+    }
+    while (box2.numberColour == box2.backgroundColor)
+    {
+        box2.numberColour = randomColorGenerator(9);
+    }
+    
     // generate answer
     var answer = randomChoiceGenerator(box1, box2);
 
