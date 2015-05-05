@@ -12,9 +12,6 @@ var leftBoxColour = getRandomColour(colours.length);
 // colour of the right box
 var rightBoxColour = getRandomColour(colours.length);
 
-// slide number
-var slideNumber = 1;
-
 // function chooses a box 1 or box 2, returns 1 or 2
 function chooseBox(){
 	var choice = Math.floor(Math.random() * 2) + 1;
@@ -26,9 +23,12 @@ function chooseBox(){
 	}
 }
 
-// draws both boxes
-function drawObservationPanel(){
-    //clearCanvas();
+/*
+*   draw observation panel
+*   @param slideNumber the number of this slide
+*
+*/
+function drawObservationPanel(slideNumber){
 	chooseBox();
 	drawLeftBox();
     drawRightBox();
@@ -51,24 +51,29 @@ function drawObservationPanel(){
 
 // draws text at top of the canvas
 function drawSlideNumber(current){
+    // variables
 	var canvas = document.getElementById("game");
     var ctx = canvas.getContext("2d");
     var width = canvas.width;
     var height = canvas.height;
 	var text = "Slide " + current;
+    
+    // display
 	ctx.fillStyle = "black";
 	ctx.font = '50px arial';
     ctx.fontBaseline = 'bottom'
     ctx.fillText(text, width / 4, height / 6);
-	current ++;
 }
 
 // draw text box numbers
 function drawBoxNumber(){
+    // variables
 	var canvas = document.getElementById("game");
     var ctx = canvas.getContext("2d");
     var width = canvas.width;
     var height = canvas.height;
+    
+    // display
 	ctx.fillStyle = "black";
 	ctx.font = '40px arial';
     ctx.fontBaseline = 'bottom'
@@ -78,13 +83,14 @@ function drawBoxNumber(){
 
 // draws the left box
 function drawLeftBox(){
+    // variables
     var canvas = document.getElementById("game");
     var ctx = canvas.getContext("2d");
     var width = canvas.width;
     var height = canvas.height;
     
-    ctx.lineWidth = 3;
-    
+    // display
+    ctx.lineWidth = 3; 
     ctx.fillStyle = leftBoxColour;
     ctx.fillRect(width / 30, height / 2, width / 2.2, height / 2.2);
     
@@ -96,6 +102,7 @@ function drawLeftBox(){
 
 // draws the text in the left box
 function leftFillText(){
+    // variables
     var canvas = document.getElementById("game");
     var ctx = canvas.getContext("2d");
     var width = canvas.width;
@@ -139,6 +146,7 @@ function drawRightBox(){
 
 // draws the text in the right box
 function rightFillText(){
+    // variables
     var canvas = document.getElementById("game");
     var ctx = canvas.getContext("2d");
     var width = canvas.width;
