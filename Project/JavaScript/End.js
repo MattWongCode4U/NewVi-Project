@@ -77,7 +77,7 @@ function addEndPanelActions()
     var width = canvas.width;
     
     // restart button
-    clickButton(width / 5, width - width / 2, width * 3 / 5, width / 5, function (){drawObservationPanel();playAudio('horse');});
+    clickButton(width / 5, width - width / 2, width * 3 / 5, width / 5, function (){drawObservationPanel();playAudio('horse');
     // end game button
     clickButton(width / 5, width - width / 4, width * 3 / 5, width / 5, function (){drawStartPanel();});
 }
