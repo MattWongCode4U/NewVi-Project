@@ -78,6 +78,7 @@ function addEndPanelActions()
     
     // restart button
     clickButton(width / 5, width - width / 2, width * 3 / 5, width / 5, function (){drawObservationPanel();playAudio('horse');
+		/*document.getElementById("game").removeEventListener('click');*/});
     // end game button
     clickButton(width / 5, width - width / 4, width * 3 / 5, width / 5, function (){drawStartPanel();});
 }
