@@ -6,12 +6,12 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
         
         <!-- Game Code -->
-        <script src="JavaScript/MainThread.js"></script>
-        <script src="JavaScript/CommonFunctions.js"></script>
-        <script src="JavaScript/Start.js"></script>
-        <script src="JavaScript/Observation.js"></script>
-        <script src="JavaScript/Answer.js"></script>
-        <script src="JavaScript/End.js"></script>
+        <script src="JavaScript/MainThread.js" async></script>
+        <script src="JavaScript/CommonFunctions.js" async></script>
+        <script src="JavaScript/Start.js" async></script>
+        <script src="JavaScript/Observation.js" async></script>
+        <script src="JavaScript/Answer.js" async></script>
+        <script src="JavaScript/End.js" async></script>
         
         <!-- External Code -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -24,7 +24,7 @@
         <link rel="stylesheet" type="text/css" href="Css/Canvas.css"/>
 	</head>
 
-	<body onload = "drawObservationPanel();">
+	<body onload = "runGame();">
 		<audio id="horse">
 			<source src="Sound/Horse.mp3" type"audio">
 		</audio>
