@@ -77,7 +77,7 @@ function addEndPanelActions()
     var width = canvas.width;
     
     // restart button
-    clickButton(width / 5, width - width / 2, width * 3 / 5, width / 5, function (){drawObservationPanel();});
+    clickButton(width / 5, width - width / 2, width * 3 / 5, width / 5, function (){drawObservationPanel();playAudio('horse');});
     // end game button
     clickButton(width / 5, width - width / 4, width * 3 / 5, width / 5, function (){drawStartPanel();});
 }
@@ -96,9 +96,4 @@ function drawEndPanel(s_score, h_score) {
     drawEndGameButton(s_score, h_score);
 
     addEndPanelActions();
-}
-
-function audio(){
-	var x = document.getElementById('audio');
-	x.play();
 }

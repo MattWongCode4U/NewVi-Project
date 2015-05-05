@@ -51,3 +51,12 @@ function clickButton(box_x, box_y, width, height, f) {
         }
     }, false);
 }
+
+/*
+*	plays the audio clip specified by the id of the audio div
+*	@param music name of the audio div that is to be played
+*/
+function playAudio(music){
+	var soundclip = document.getElementById(music);
+	soundclip.play();
+}
