@@ -146,11 +146,6 @@ function click_to_start(e) {
 //toggle to mute/unmute the sound
 function toggleSound(e) {
   var audio = document.getElementById("background_audio");
-  canvas = document.getElementById("game");
-  ctx = canvas.getContext("2d");
-  var width = canvas.width;
-  var image1 = new Image();
-  var image2 = new Image();
   if(soundLink) {
     if(audio.paused) {
       audio.play();
