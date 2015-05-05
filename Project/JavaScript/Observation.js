@@ -1,11 +1,6 @@
 // slide structure
 var slide = {boxNum: 0, number: 0, numberColour: "Black", backgroundColor: "Black"};
 
-// left box structure
-var box1 = {boxNum: 1, number: 0, numberColour: "Black", backgroundColor: "Black"};
-
-// right box structure
-var box2 = {boxNum: 2, number: 0, numberColour: "Black", backgroundColor: "Black"};
 
 // colour of the left box
 var leftBoxColour = getRandomColour(colours.length);
@@ -29,6 +24,10 @@ function chooseBox(){
 *
 */
 function drawObservationPanel(slideNumber){
+    // generate display  
+    var box1 = {boxNum: 1, number: , numberColour: randomNumberGenerator(), backgroundColor: randomColourGenerator(9)};
+    var box2 = {boxNum: 2, number: 0, numberColour: randomNumberGenerator(), backgroundColor: "Black"};
+    
 	chooseBox();
 	drawLeftBox();
     drawRightBox();
