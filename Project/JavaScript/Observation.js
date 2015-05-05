@@ -57,18 +57,7 @@ function drawObservationPanel(slideNumber){
 	drawSlideNumber(slideNumber);
 	drawBoxNumber();
 	
-	// assigns the slide to the attributes of the chosen box
-	if(slide.boxNum == 1){
-		slide.number = box1.number;
-		slide.numberColour = box1.numberColour;
-		slide.backgroundColor = box1.backgroundColor;
-	} else {
-		slide.number = box2.number;
-		slide.numberColour = box2.numberColour;
-		slide.backgroundColor = box2.backgroundColor;
-	}
-	
-	return answer;
+	setTimeout(function() {return answer;}, 3000);
 }
 
 // draws text at top of the canvas
