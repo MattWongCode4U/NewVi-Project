@@ -71,7 +71,7 @@ function drawSoundButton() {
 
   //draws the image on the canvas
   image.onload = function() {
-    ctx.drawImage(image, width * 49 / 60, width / 150);
+    ctx.drawImage(image, width * 49 / 60, width / 150, width * 0.16, width * 0.16);
   };
   //image source
   image.src = "Images/Unmute.png"; 
