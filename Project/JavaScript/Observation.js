@@ -1,8 +1,3 @@
-// array of colours
-// red, green, blue, black, yellow, purple, cyan, orange, brown
-var colours = ["rgb(255,0,0)","rgb(0,255,0)","rgb(0,0,255)","rgb(0,0,0)","rgb(255,255,0)"
-                ,"rgb(255,0,255)","rgb(0,255,255)","rgb(255,137,0)","rgb(108,50,0)"];
-
 // slide structure
 var slide = {boxNum: 0, number: 0, numberColour: "Black", backgroundColor: "Black"};
 
@@ -29,16 +24,6 @@ function chooseBox(){
 	} else {
 		slide.boxNum = 2;
 	}
-}
-
-// function returns a random colour
-function getRandomColour(max){
-    return colours[Math.floor(Math.random() * (max))];
-}
-
-// returns a random number from 0 - 9 inclusive.
-function getRandomNumber(){
-    return Math.floor(Math.random() * 10);
 }
 
 // draws both boxes
