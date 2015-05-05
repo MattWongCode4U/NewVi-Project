@@ -137,7 +137,7 @@ function on_mousemove (ev) {
 function click_to_start(e) {
   if (startLink)  {
    //clears the canvas
-   ctx.clearRect(0, 0, canvas.width, canvas.height);
+   clearCanvas();
    //draws the question page UI
    drawObservationPanel();
   }
@@ -146,13 +146,15 @@ function click_to_start(e) {
 //toggle to mute/unmute the sound
 function toggleSound(e) {
   var audio = document.getElementById("background_audio");
+  canvas = document.getElementById("game");
+  ctx = canvas.getContext("2d");
+  var width = canvas.width;
+  var image1 = new Image();
+  var image2 = new Image();
   if(soundLink) {
-    //if the button is clicked and the audio is paused
     if(audio.paused) {
-      //play the audio if its not playing
       audio.play();
     } else {
-      //pause the audio if its playing
       audio.pause();
     }
   }
