@@ -56,8 +56,7 @@ function addStartPanelActions()
     var width = canvas.width;
 
     // start button
-    clickButton(width / 5, width - width / 4, width * 3 / 5, width / 5, function (){drawObservationPanel();
-		document.getElementById('game').removeEventListener('click',clicked);});
+    clickButton(width / 5, width - width / 4, width * 3 / 5, width / 5, function (){drawObservationPanel();});
 
 }
 /*

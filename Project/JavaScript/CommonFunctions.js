@@ -38,10 +38,19 @@ function clickButton(box_x, box_y, width, height, f) {
     var context = canvas.getContext('2d');
     var x;
     var y;
-	clearCanvas();
     
     // add action
-    canvas.addEventListener('click', clicked(box_x, box_y, width, height, f()), false);
+    canvas.addEventListener('click', function(evt) {
+        // position of the mouse click
+        x = evt.offsetX;
+        y = evt.offsetY;
+        
+        // clear canvas and preform action
+        if (collision(box_x, box_y, width, height, x, y)) {
+            clearCanvas();
+            f();
+        }
+    }, false);
 }
 
 /*
@@ -97,17 +106,5 @@ function toggleSound() {
       audio.play();
     } else {
       audio.pause();
-    }
-}
-
-function clicked(evt, box_x, box_y, width, height, f) {
-    // position of the mouse click
-    var x = evt.offsetX;
-    var y = evt.offsetY;
-    
-    // clear canvas and preform action
-    if (collision(box_x, box_y, width, height, x, y)) {
-        clearCanvas();
-        f();
     }
 }
