@@ -57,7 +57,9 @@ function drawObservationPanel(slideNumber){
 	drawSlideNumber(slideNumber);
 	drawBoxNumber();
 	
-	setTimeout(function() {return answer;}, 3000);
+    // clear canvas and return answer after 3 seconds
+	setTimeout(function() { clearCanvas();
+                            return answer;}, 3000);
 }
 
 // draws text at top of the canvas
