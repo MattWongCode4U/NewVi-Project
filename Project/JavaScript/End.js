@@ -27,7 +27,7 @@ function drawEndPanelText(s_score, h_score) {
     gradient3.addColorStop("0", "#4CB8C4");
     gradient3.addColorStop("1", "#3CD3AD");
     ctx.fillStyle = gradient3;
-    ctx.fillText("High Score: " + "" + h_score, width / 4, width * 3 / 7);
+    ctx.fillText("High Score: " + h_score, width / 4, width * 3 / 7);
 }
 
 // draw Restart button
@@ -77,8 +77,7 @@ function addEndPanelActions()
     var width = canvas.width;
     
     // restart button
-    clickButton(width / 5, width - width / 2, width * 3 / 5, width / 5, function (){drawObservationPanel();playAudio('horse');
-		/*document.getElementById("game").removeEventListener('click');*/});
+    clickButton(width / 5, width - width / 2, width * 3 / 5, width / 5, function (){drawObservationPanel();});
     // end game button
     clickButton(width / 5, width - width / 4, width * 3 / 5, width / 5, function (){drawStartPanel();});
 
@@ -93,7 +92,7 @@ function drawEndPanel(s_score, h_score) {
     var canvas = document.getElementById('game');
     var context = canvas.getContext('2d');
     
-    drawEndPanelText();
+    drawEndPanelText(s_score, h_score);
     drawRestartButton();
     drawEndGameButton(s_score, h_score);
 

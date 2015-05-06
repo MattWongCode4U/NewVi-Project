@@ -58,6 +58,7 @@ function addStartPanelActions()
     var canvas = document.getElementById('game');
     var context = canvas.getContext('2d');
     var width = canvas.width;
+	var height = canvas.height;
 
     // start button
     clickButton(width / 5, height - height / 4, width * 3 / 5, height / 5, function (){drawObservationPanel();});

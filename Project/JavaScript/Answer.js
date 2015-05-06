@@ -289,9 +289,12 @@
       function mainThrower(answer, tile) {
         if(answer == tile) {
           playAudio('success');
+		  drawObservationPanel(2);
           return true;
         } else {
           playAudio('fail');
+		  clearCanvas();
+		  drawEndPanel(1000, 9000);
           return false;
         }
       }
