@@ -1,12 +1,7 @@
+// resize the canvas according to the window size
 function canvasResize() {
-    var 
-        // Obtain a reference to the canvas element
-        // using its id.
-        htmlCanvas = document.getElementById('game'),
-    
-        // Obtain a graphics context on the
-        // canvas element for drawing.
-        context = htmlCanvas.getContext('2d');
+    var htmlCanvas = document.getElementById('game');
+    var context = htmlCanvas.getContext('2d');
 
     // Start listening to resize events and
     // draw canvas.
