@@ -7,6 +7,7 @@ function runGame() {
     var highScore = 0;
     var level = 1;
     var answerArray = [];
+    var life = 3;
     
     drawStartPanel(highScore);
     /*clearCanvas();
@@ -35,6 +36,19 @@ function runGame() {
             gameState = 0;
     }*/
     
+    function refreshAnswerPage() {
+        var correct;
+        while(life > 0) {
+            correct = drawAnswerPanel();
+            if(correct) {
+                drawAnswerPanel();
+            } else {
+                life--;
+                drawAnswerPanel();
+            }
+        }
+        drawEndPanel();
+    }
     /* Scores */
     // set currentScore to be 0
     function clearScore() {
