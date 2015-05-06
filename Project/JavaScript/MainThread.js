@@ -8,8 +8,10 @@ function runGame() {
     var level = 1;
     var answerArray = [];
     var life = 3;
-    
+	
+    //window.onresize = function(){
     drawStartPanel(highScore);
+	//}
     /*clearCanvas();
     drawObservationPanel(1);*/
     /*clearCanvas();
