@@ -40,7 +40,7 @@ function clickButton(box_x, box_y, width, height, f) {
     var y;
     
     // add action
-    canvas.addEventListener('click', function test(evt) {
+    canvas.addEventListener('click', function (evt) {
         // position of the mouse click
         x = evt.offsetX;
         y = evt.offsetY;
