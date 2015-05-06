@@ -288,10 +288,10 @@
 
       function mainThrower(answer, tile) {
         if(answer == tile) {
-          playAudio('correct');
+          playAudio('success');
           return true;
         } else {
-          playAudio('horse');
+          playAudio('fail');
           return false;
         }
       }
