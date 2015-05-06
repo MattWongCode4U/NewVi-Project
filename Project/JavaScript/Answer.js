@@ -1,6 +1,8 @@
     // Canvas constructor
     function answerFrame() {
-      // Constructing canvas
+      // Clear canvas
+	  clearCanvas();
+	  // Constructing canvas
       var answer = document.getElementById("game");
       var ctx = answer.getContext("2d");
       // width and height of the canvas
