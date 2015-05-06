@@ -9,8 +9,8 @@ function runGame() {
     var answerArray = [];
     
     drawStartPanel(highScore);
-    clearCanvas();
-    drawObservationPanel(1);
+    /*clearCanvas();
+    drawObservationPanel(1);*/
     /*clearCanvas();
     drawAnswerPanel();
     clearCanvas();

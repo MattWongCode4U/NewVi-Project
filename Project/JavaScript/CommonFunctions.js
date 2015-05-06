@@ -40,7 +40,7 @@ function clickButton(box_x, box_y, width, height, f) {
     var y;
     
     // add action
-    canvas.addEventListener('click', function(evt) {
+    canvas.addEventListener('click', function test(evt) {
         // position of the mouse click
         x = evt.offsetX;
         y = evt.offsetY;
@@ -49,6 +49,7 @@ function clickButton(box_x, box_y, width, height, f) {
         if (collision(box_x, box_y, width, height, x, y)) {
             clearCanvas();
             f();
+			this.removeEventListener('click', arguments.callee);
         }
     }, false);
 }
