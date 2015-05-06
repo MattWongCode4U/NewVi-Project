@@ -81,8 +81,7 @@ function addEndPanelActions()
 		/*document.getElementById("game").removeEventListener('click');*/});
     // end game button
     clickButton(width / 5, width - width / 4, width * 3 / 5, width / 5, function (){drawStartPanel();});
-    //sound button
-    clickToMute(250, 10, 40, 35, function () {toggleSound();});
+
 }
 /*
 *   Draw end panel
@@ -97,7 +96,6 @@ function drawEndPanel(s_score, h_score) {
     drawEndPanelText();
     drawRestartButton();
     drawEndGameButton(s_score, h_score);
-    drawSoundButton();
 
     addEndPanelActions();
 }

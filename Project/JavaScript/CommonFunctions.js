@@ -63,10 +63,24 @@ function playAudio(music){
 	soundclip.play();
 }
 
-//displays the sound button
-function drawSoundButton() {
-  canvas = document.getElementById("game");
-  ctx = canvas.getContext("2d");
+//displays the mute sound button
+function drawMuteSoundButton() {
+  var canvas = document.getElementById("game");
+  var ctx = canvas.getContext("2d");
+  var image = new Image();
+  var width = canvas.width;
+
+  //draws the image on the canvas
+  image.onload = function() {
+    ctx.drawImage(image, width * 49 / 60, width / 150, width * 0.16, width * 0.16);
+  };
+  //image source
+  image.src = "Images/Mute.png"; 
+}
+
+function drawUnmuteSoundButton() {
+  var canvas = document.getElementById("game");
+  var ctx = canvas.getContext("2d");
   var image = new Image();
   var width = canvas.width;
 
@@ -94,7 +108,6 @@ function clickToMute(box_x, box_y, width, height, f) {
         
         // clear canvas and preform action
         if (collision(box_x, box_y, width, height, x, y)) {
-            //clearCanvas();
             f();
         }
     }, false);
@@ -103,9 +116,16 @@ function clickToMute(box_x, box_y, width, height, f) {
 //toggle to mute/unmute the sound
 function toggleSound() {
     var audio = document.getElementById("background_audio");
+    var canvas = document.getElementById("game");
+    var ctx = canvas.getContext("2d");
+    var width = canvas.width;
     if(audio.paused) {
       audio.play();
+      ctx.clearRect(width * 49 / 60, width / 150, width * 0.16, width * 0.16);
+      drawMuteSoundButton();
     } else {
       audio.pause();
+      ctx.clearRect(width * 49 / 60, width / 150, width * 0.16, width * 0.16);
+      drawUnmuteSoundButton();
     }
 }

@@ -57,6 +57,7 @@ function addStartPanelActions()
 
     // start button
     clickButton(width / 5, width - width / 4, width * 3 / 5, width / 5, function (){drawObservationPanel();});
+    clickToMute(width * 5 / 6, width / 30, width * 2 / 15, width * 7 / 60, function () {toggleSound();});
 
 }
 /*
@@ -68,4 +69,5 @@ function drawStartPanel(highScore) {
     drawStartButton();
     drawHighScore(highScore);
     addStartPanelActions();
+    drawMuteSoundButton();
 }
