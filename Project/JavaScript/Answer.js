@@ -171,6 +171,9 @@
        * Prints the tag and slide
        */
       function showFillText() {
+        ctx.closePath();
+        ctx.beginPath();
+        ctx.fillStyle = "black";
         ctx.fillText(tag, w / 2.5, h / 8);
         ctx.fillText(slide, w / 2.8, h / 4.5);
         ctx.closePath();

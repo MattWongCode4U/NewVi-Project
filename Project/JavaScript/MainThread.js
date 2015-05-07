@@ -9,6 +9,7 @@ function runGame() {
     var answerArray = [];
     var life = 3;
     var subLvl;
+    var answer;
     
     drawStartPanel(highScore);
     /*clearCanvas();
@@ -35,22 +36,40 @@ function runGame() {
         else if (gameState == 3)
             gameState = 0;
     }*/
-    
-    function activateAnswerPage() {
+   
+   /**
+    * This function controls the difficulty,
+    * the game will only terminate if life has reached zero
+    * @param answer The struct to be passed into answer panel
+    */ 
+    function activateAnswerPage(answer) {
         subLvl = 1;
-        if(level % 3 == 0) {
-            subLvl++;
-        }
-        refreshAnswerPage();
-
-    }
-    function refreshAnswerPage() {
-        var correct;
-        var subLvlCounter = subLvl;
-        while(subLvlCounter > 0) {
-            if(life <= 0) {
-                drawEndPanel();
+        //increment the slide every 3 levels have been passed
+        while(refreshAnswerPage()) {
+            if(level % 3 == 0) {
+                subLvl++;
             }
+        }
+        drawEndPanel();
+    }
+
+    /**
+    * This function will continue to refresh answer panel until
+    * each levels desinated amount of execution has been reached
+    * if life has reached zero, the function will return false, else true
+    */
+    function refreshAnswerPage(answer) {
+        //If the user has guessed the correct answer. 
+        var correct;
+        //The amount of slides a level has
+        var subLvlCounter = subLvl;
+        //While not all slides have been displayed
+        while(subLvlCounter > 0) {
+            //if life = 0, end the game
+            if(life <= 0) {
+                return false;
+            }
+            //Detect the users guess, if wrong, deduct a life
             correct = drawAnswerPanel();
             if(correct) {
                 drawAnswerPanel();
@@ -58,10 +77,16 @@ function runGame() {
                 life--;
                 drawAnswerPanel();
             }
+            //decrement the slide number
             subLvlCounter--;
         }
+        //increment a level after all slides have been displayed
         level++;
+        //assign the new struct to be used
+        answer = drawObservationPanel();
+        return true;
     }
+
     /* Scores */
     // set currentScore to be 0
     function clearScore() {
