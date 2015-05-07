@@ -30,7 +30,7 @@
       var fontsize = w / 3;
       // Setting up fond information and begin the drawing
       ctx.beginPath();
-      ctx.font = "bold " + fontsize + "px Aerial ";
+      ctx.font = "bold " + fontsize/3 + "px Aerial ";
       ctx.textBaseline = "bottom";
 
       /**
@@ -171,8 +171,11 @@
        * Prints the tag and slide
        */
       function showFillText() {
-        ctx.fillText(tag, w / 2 - pad, h / 8);
-        ctx.fillText(slide, w / 2 - pad, h / 5);
+        ctx.fillText(tag, w / 2.5, h / 8);
+        ctx.fillText(slide, w / 2.8, h / 4.5);
+        ctx.closePath();
+        ctx.beginPath();
+        ctx.font = "bold " + fontsize + "px Aerial ";
       }
 
       /**
@@ -313,12 +316,12 @@
       function drawAnswerPanel(answer, slideNum, score) {
         var question = Math.floor((Math.random() * 3));
         var answerTile = Math.floor((Math.random() * 4) + 1);
-        colorCoice = answer.backgroundColor;
+        /**colorCoice = answer.backgroundColor;
         numChoice = answer.number;
         numColorChoice = answer.numberColor;
         tag = answer.boxNum;
         slide = slideNum;
-        showFillText();
+        */showFillText();
         if (question != 0) {
           printBackground();
         }

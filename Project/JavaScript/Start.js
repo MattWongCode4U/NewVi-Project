@@ -61,7 +61,7 @@ function addStartPanelActions()
 	var height = canvas.height;
 
     // start button
-    clickButton(width / 5, height - height / 4, width * 3 / 5, height / 5, function (){drawObservationPanel();});
+    clickButton(width / 5, height - height / 4, width * 3 / 5, height / 5, function (){drawObservationPanel(1);});
     clickToMute(width * 5 / 6, height / 30, width * 2 / 15, height * 7 / 60, function () {toggleSound();});
 
 }
