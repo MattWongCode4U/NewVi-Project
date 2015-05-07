@@ -313,6 +313,11 @@
       function drawAnswerPanel(answer, slideNum, score) {
         var question = Math.floor((Math.random() * 3));
         var answerTile = Math.floor((Math.random() * 4) + 1);
+        colorCoice = answer.backgroundColor;
+        numChoice = answer.number;
+        numColorChoice = answer.numberColor;
+        tag = answer.boxNum;
+        slide = slideNum;
         showFillText();
         if (question != 0) {
           printBackground();
