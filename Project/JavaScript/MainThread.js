@@ -8,14 +8,12 @@ function runGame() {
     var level = 1;
     var answerArray = [];
     var life = 3;
-	
-    //window.onresize = function(){
+    var subLvl;
+    
     drawStartPanel(highScore);
-	//}
     /*clearCanvas();
     drawObservationPanel(1);*/
     /*clearCanvas();
-    drawAnswerPanel();
     clearCanvas();
     drawEndPanel(currentScore, highScore);
     */
@@ -38,9 +36,21 @@ function runGame() {
             gameState = 0;
     }*/
     
+    function activateAnswerPage() {
+        subLvl = 1;
+        if(level % 3 == 0) {
+            subLvl++;
+        }
+        refreshAnswerPage();
+
+    }
     function refreshAnswerPage() {
         var correct;
-        while(life > 0) {
+        var subLvlCounter = subLvl;
+        while(subLvlCounter > 0) {
+            if(life <= 0) {
+                drawEndPanel();
+            }
             correct = drawAnswerPanel();
             if(correct) {
                 drawAnswerPanel();
@@ -48,8 +58,9 @@ function runGame() {
                 life--;
                 drawAnswerPanel();
             }
+            subLvlCounter--;
         }
-        drawEndPanel();
+        level++;
     }
     /* Scores */
     // set currentScore to be 0
