@@ -6,3 +6,8 @@
     display: block;
     position: relative;
 }
+#container canvas {
+   -webkit-transform : rotate(-90deg);  
+   -moz-transform : rotate(-90deg);
+}
+

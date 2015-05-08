@@ -71,11 +71,8 @@ function runGame() {
             }
             //Detect the users guess, if wrong, deduct a life
             correct = drawAnswerPanel();
-            if(correct) {
-                drawAnswerPanel();
-            } else {
+            if(!correct) {
                 life--;
-                drawAnswerPanel();
             }
             //decrement the slide number
             subLvlCounter--;
