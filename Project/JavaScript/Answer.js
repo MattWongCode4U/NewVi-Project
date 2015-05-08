@@ -312,6 +312,28 @@
         clickButton(w / 2, h / 2  + pad, w / 3, h / 3, function (){mainThrower(answer, 4);});
       }
 
+      function drawTimer() {
+        ctx.closePath();
+        ctx.beginPath();
+        var width = w;
+        var counter = 5;
+        var start = 5;
+        ctx.font = "bold 20px Arial";
+        ctx.fillText(start, width/30, width/12);
+        var loop = setInterval(
+        function() {
+            if(counter != 1) {
+                counter--;
+                ctx.clearRect(5, 5, width/6, width * 2/15);
+                ctx.fillText(counter, width/30, width/12);
+            } else if (counter == 1) {
+                ctx.clearRect(5, 5, width/6, width * 2/15);
+                return false;
+            }
+        }, 1000);
+
+}
+
       /**
        * Construct everything, assign the correct answer tile
        * Reset color array after everything finished constructing
@@ -324,7 +346,8 @@
         numColorChoice = answer.numberColor;
         tag = answer.boxNum;
         slide = slideNum;
-        */showFillText();
+        */
+        showFillText();
         if (question != 0) {
           printBackground();
         }
@@ -333,6 +356,7 @@
         tile3(answerTile, question);
         tile4(answerTile, question);
         printBorder();
+        drawTimer();
         colors = ["red", "yellow", "blue", "black", "purple", "brown", "cyan", "green"];
         numColors = ["red", "yellow", "blue", "black", "purple", "brown", "cyan", "green"];
         numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
