@@ -295,14 +295,14 @@
       function mainThrower(answer, tile) {
         if(answer == tile) {
           playAudio('success');
+		  drawObservationPanel(2);
           return true;
         } else {
           playAudio('fail');
-        }
 		  clearCanvas();
 		  drawEndPanel(1000, 9000);
           return false;
-        
+        }
       }
 
       function addAnswerPanelActions(answer) {
@@ -311,7 +311,7 @@
         clickButton(w / 2 - w / 3, h / 2 + pad, w / 3, h / 3, function (){mainThrower(answer, 3);});
         clickButton(w / 2, h / 2  + pad, w / 3, h / 3, function (){mainThrower(answer, 4);});
       }
-/**
+
       function drawTimer() {
         ctx.closePath();
         ctx.beginPath();
@@ -356,7 +356,7 @@
         tile3(answerTile, question);
         tile4(answerTile, question);
         printBorder();
-        //drawTimer();
+        drawTimer();
         colors = ["red", "yellow", "blue", "black", "purple", "brown", "cyan", "green"];
         numColors = ["red", "yellow", "blue", "black", "purple", "brown", "cyan", "green"];
         numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
