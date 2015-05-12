@@ -74,11 +74,17 @@ function runGame() {
     *
     */
     function endPanelEventListener(event) {
-        // restart
+        // reset values to default value
+		currentScore = 0;
+		level = 1;
+		currentSlide = 1;
+		
+		// restart
         if (eventListener(0.7, 0.5, 0.1, 0.6, event.offsetX, event.offsetY)) {
             canvas.removeEventListener('click', endPanelEventListener);
             drawObservationPanel(currentSlide, randomBoxGenerator(1), randomBoxGenerator(2)); 
             observationPanelEventListener();
+			
         }
         // end game
         else if (eventListener(0.9, 0.5, 0.1, 0.6, event.offsetX, event.offsetY)) {
