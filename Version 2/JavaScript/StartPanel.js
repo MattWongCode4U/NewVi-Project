@@ -36,10 +36,11 @@ function drawMuteSoundButton() {
 	var ctx = canvas.getContext("2d");
 	var image = new Image();
 	var width = canvas.width;
+	var height = canvas.height;
 	
 	//draws the image on the canvas
 	image.onload = function() {
-	ctx.drawImage(image, width * 49 / 60, width / 150, width * 0.16, width * 0.16);
+	ctx.drawImage(image, width * 49 / 60, height / 150, width * 0.16, height * 0.16);
 	};
 	//image source
 	image.src = "Images/Mute.png"; 
@@ -51,10 +52,11 @@ function drawUnmuteSoundButton() {
   var ctx = canvas.getContext("2d");
   var image = new Image();
   var width = canvas.width;
+  var height = canvas.height;
 
   //draws the image on the canvas
   image.onload = function() {
-    ctx.drawImage(image, width * 49 / 60, width / 150, width * 0.16, width * 0.16);
+    ctx.drawImage(image, width * 49 / 60, height / 150, width * 0.16, height * 0.16);
   };
   //image source
   image.src = "Images/Unmute.png"; 
