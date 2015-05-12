@@ -9,27 +9,73 @@ function runGame() {
     var currentScore = 0;
     var highScore = 0;
     var level = 1;
+    var life = 3;
+    var slidesNum;
     var answerArray = [];
     
     drawStartPanel(highScore);
-	canvas.addEventListener('click', muteButtonEventListener);
     canvas.addEventListener('click', startPanelEventListener);
     
     /*
     *   the start button on-click action
     */
     function startPanelEventListener(event) {
-		if (eventListener(0.8, 0.5, 0.1, 0.6, event.offsetX, event.offsetY)) {
+        if (eventListener(0.8, 0.5, 0.1, 0.6, event.offsetX, event.offsetY)) {
             // generate boxes to be displayed
             for (var i = 0; i < level; i++) {
                 answerArray.push(randomBoxGenerator(1));
             }
             // remove start button and draw the observation panel and its action listener
             canvas.removeEventListener('click', startPanelEventListener);
-			canvas.removeEventListener('click', muteButtonEventListener);
             drawObservationPanel(currentSlide, answerArray[0], randomBoxGenerator(2));
             observationPanelEventListener();
         }
+    }
+    /**
+    * This function controls the difficulty,
+    * the game will only terminate if life has reached zero
+    * @param answer The struct to be passed into answer panel
+    */ 
+    function activateAnswerPage() {
+        slidesNum = 1;
+        //increment the slide every 3 levels have been passed
+        while(refreshAnswerPage()) {
+            if(level % 3 == 0) {
+                slidesNum++;
+            }
+        }
+        drawEndPanel();
+    }
+
+    /**
+    * This function will continue to refresh answer panel until
+    * each levels desinated amount of execution has been reached
+    * if life has reached zero, the function will return false, else true
+    */
+    function refreshAnswerPage() {
+        //If the user has guessed the correct answer. 
+        var correct;
+        //The amount of slides a level has
+        var subLvlCounter = slidesNum;
+        //While not all slides have been displayed
+        while(subLvlCounter > 0) {
+            //if life = 0, end the game
+            if(life <= 0) {
+                return false;
+            }
+            //Detect the users guess, if wrong, deduct a life
+            //decrement the slide number
+            subLvlCounter--;
+        }
+        correct = drawAnswerPanel();
+        if(!correct) {
+            life--;
+        }
+        //increment a level after all slides have been displayed
+        level++;
+        //assign the new struct to be used
+        observationPanelEventListener();
+        return true;
     }
     /*
     *   
@@ -42,9 +88,7 @@ function runGame() {
     }
     /*
     *
-    */
-
-    /*
+    
     function answerPanelEventListener(event) {
         // variables
         var clicked = false;
@@ -74,49 +118,21 @@ function runGame() {
             canvas.addEventListener('click', endPanelEventListener);
         } 
     } */
-    
     /*
     *
     */
     function endPanelEventListener(event) {
-		// restart
+        // restart
         if (eventListener(0.7, 0.5, 0.1, 0.6, event.offsetX, event.offsetY)) {
-            // reset values to default values
-			currentScore = 0;
-			level = 1;
-			currentSlide = 1;
-			
-			canvas.removeEventListener('click', endPanelEventListener);
+            canvas.removeEventListener('click', endPanelEventListener);
             drawObservationPanel(currentSlide, randomBoxGenerator(1), randomBoxGenerator(2)); 
             observationPanelEventListener();
-			
         }
         // end game
         else if (eventListener(0.9, 0.5, 0.1, 0.6, event.offsetX, event.offsetY)) {
-            // reset values to default values
-			currentScore = 0;
-			level = 1;
-			currentSlide = 1;
-			
-			canvas.removeEventListener('click', endPanelEventListener);
+            canvas.removeEventListener('click', endPanelEventListener);
             canvas.addEventListener('click', startPanelEventListener);
-			canvas.addEventListener('click', muteButtonEventListener);
             drawStartPanel(highScore); 
         }  
     }
-	
-	/*
-	*
-	*/
-	function muteButtonEventListener(event) {
-		var canvas = document.getElementById("game");
-		var ctx = canvas.getContext("2d");
-		var width = canvas.width;
-		//if (eventListener(width * 49 / 60, width / 150, width * 0.16, width * 0.16, event.offsetX, event.offsetY)) {
-		if (eventListener(0.1,0.9,0.075,0.13,event.offsetX, event.offsetY)){	
-			toggleSound();
-			//drawButton(0.1,0.9,0.075,'White','Black','Black',0.13);
-			//alert("alert");
-		}
-	}
 }
