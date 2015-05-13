@@ -11,12 +11,7 @@
       // Array of all possible color values used in this game
       var colors = ["red", "yellow", "blue", "black", "purple", "brown", "cyan", "green"];
       var numColors = ["red", "yellow", "blue", "black", "purple", "brown", "cyan", "green"];
-      var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-      // Padding used to adjust position
-      var pad = 20;
-      //The object to be used to test the user, either 1 or 2
-      // Padding used to adjust position 
-      var pad = w / 12;
+      var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]; 
       //The object to be used to test the user, either 1 or 2
       var tag = "Box 1";
       // The question Number to test the user in one round
@@ -26,11 +21,9 @@
       // The correct answers color value
       var colorChoice = "red";
       var numColorChoice = "black";
-      // The font color from the struct;
-      var fontsize = w / 3;
       // Setting up fond information and begin the drawing
       ctx.beginPath();
-      ctx.font = "bold " + fontsize/3 + "px Aerial ";
+      ctx.font = "bold " + (0.1 * h) + "px Aerial ";
       ctx.textBaseline = "bottom";
 
       /**
@@ -48,22 +41,26 @@
       function printBackground() {
         ctx.closePath();
         ctx.beginPath();
+        if (colorChoice == "black") {
+            ctx.strokeStyle = "white";
+          } else {
+            ctx.strokeStyle = "black";
+          }
         ctx.fillStyle = colorChoice;
-        ctx.fillRect(w / 2 - w / 3, h / 2 - h / 3 + pad, 2 * w / 3, 2 * h / 3);
+        ctx.rect((0.25 - 0.4 / 2) * w, (0.6 - 0.2) * h, 0.4 * w, (0.2 + 0.05) * h);
+        ctx.stroke();
+        ctx.fill();
+        ctx.rect((0.75 - 0.4 / 2) * w, (0.6 - 0.2) * h, 0.4 * w, (0.2 + 0.05) * h);
+        ctx.stroke();
+        ctx.fill();
+        ctx.rect((0.25 - 0.4 / 2) * w, (0.9 - 0.2) * h, 0.4 * w, (0.2 + 0.05) * h);
+        ctx.stroke();
+        ctx.fill();
+        ctx.rect((0.75 - 0.4 / 2) * w, (0.9 - 0.2) * h, 0.4 * w, (0.2 + 0.05) * h);
+        ctx.stroke();
+        ctx.fill();
       }
 
-      function printBorder() {
-        if (colorChoice == "black") {
-          ctx.strokeStyle = "white";
-        } else {
-          ctx.strokeStyle = "black";
-        }
-        ctx.rect(w / 2 - w / 3, h / 2 - h / 3 + pad, h / 3, h / 3);
-        ctx.rect(w / 2, h / 2 - h / 3 + pad, h / 3, h / 3);
-        ctx.rect(w / 2 - w / 3, h / 2 + pad, h / 3, h / 3);
-        ctx.rect(w / 2, h / 2 + pad, h / 3, h / 3);
-        ctx.stroke();
-      }
       /**
        * Get a random number range from 0 to the max index of colors array
        */
@@ -151,6 +148,12 @@
         ctx.closePath();
         ctx.beginPath();
         //If this is the tile for the right answer, paint the color of choice(red in this case)
+        if (colorChoice == "black") {
+            ctx.strokeStyle = "white";
+          } else {
+            ctx.strokeStyle = "black";
+          }
+        ctx.strokeRect(x,y,w,h);
         if (answer == 1) {
           ctx.fillStyle = colorChoice;
           ctx.fillRect(x, y, w, h);
@@ -174,11 +177,11 @@
         ctx.closePath();
         ctx.beginPath();
         ctx.fillStyle = "black";
-        ctx.fillText(tag, w / 2.5, h / 8);
-        ctx.fillText(slide, w / 2.8, h / 4.5);
+        ctx.fillText(tag, w / 2.5, h / 5);
+        ctx.fillText(slide, w / 2.8, h / 3.5);
         ctx.closePath();
         ctx.beginPath();
-        ctx.font = "bold " + fontsize + "px Aerial ";
+        ctx.font = "bold " + (0.15 * h) + "px Aerial ";
       }
 
       /**
@@ -189,24 +192,24 @@
         switch (question) {
           case 0:
             if (answerTile == 1) {
-              paint(w / 2 - w / 3, h / 2 - h / 3 + pad, w / 3, h / 3, 1);
+              paint((0.25 - 0.4 / 2) * w, (0.6 - 0.2) * h, 0.4 * w, (0.2 + 0.05) * h, 1);
             } else {
-              paint(w / 2 - w / 3, h / 2 - h / 3 + pad, w / 3, h / 3, 0);
+              paint((0.25 - 0.4 / 2) * w, (0.6 - 0.2) * h, 0.4 * w, (0.2 + 0.05) * h, 0);
             }
-            printNum(w / 3 - w / 15, h / 2 - h / 3 + pad + h / 3);
+            printNum(0.22 * w, 0.6 * h);
             break;
           case 1:
             if (answerTile == 1) {
-              paintNum(w / 3 - w / 15, h / 2 + h / 10, 1);
+              paintNum(0.22 * w, 0.6 * h, 1);
             } else {
-              paintNum(w / 3 - w / 15, h / 2 + h / 10, 0);
+              paintNum(0.22 * w, 0.6 * h, 0);
             }
             break;
           case 2:
             if (answerTile == 1) {
-              writeNum(w / 3 - w / 15, h / 2 + h / 10, 1);
+              writeNum(0.22 * w, 0.6 * h, 1);
             } else {
-              writeNum(w / 3 - w / 15, h / 2 + h / 10, 0);
+              writeNum(0.22 * w, 0.6 * h, 0);
             }
             break;
         }
@@ -216,24 +219,24 @@
         switch (question) {
           case 0:
             if (answerTile == 2) {
-              paint((w / 2), (h / 2 - h / 3 + pad), w / 3, h / 3, 1);
+              paint((0.75 - 0.4 / 2) * w, (0.6 - 0.2) * h, 0.4 * w, (0.2 + 0.05) * h, 1);
             } else {
-              paint((w / 2), (h / 2 - h / 3 + pad), w / 3, h / 3, 0);
+              paint((0.75 - 0.4 / 2) * w, (0.6 - 0.2) * h, 0.4 * w, (0.2 + 0.05) * h, 0);
             }
-            printNum(w / 2 + w / 10, h / 2 + h / 10);
+            printNum(0.72 * w, 0.6 * h);
             break;
           case 1:
             if (answerTile == 2) {
-              paintNum(w / 2 + w / 10, h / 2 + h / 10, 1);
+              paintNum(0.72 * w, 0.6 * h, 1);
             } else {
-              paintNum(w / 2 + w / 10, h / 2 + h / 10, 0);
+              paintNum(0.72 * w, 0.6 * h, 0);
             }
             break;
           case 2:
             if (answerTile == 2) {
-              writeNum(w / 2 + w / 10, h / 2 + h / 10, 1);
+              writeNum(0.72 * w, 0.6 * h, 1);
             } else {
-              writeNum(w / 2 + w / 10, h / 2 + h / 10, 0);
+              writeNum(0.72 * w, 0.6 * h, 0);
             }
             break;
         }
@@ -243,24 +246,24 @@
         switch (question) {
           case 0:
             if (answerTile == 3) {
-              paint((w / 2 - w / 3), (h / 2 + pad), w / 3, h / 3, 1);
+              paint((0.25 - 0.4 / 2) * w, (0.9 - 0.2) * h, 0.4 * w, (0.2 + 0.05) * h, 1);
             } else {
-              paint((w / 2 - w / 3), (h / 2 + pad), w / 3, h / 3, 0);
+              paint((0.25 - 0.4 / 2) * w, (0.9 - 0.2) * h, 0.4 * w, (0.2 + 0.05) * h, 0);
             }
-            printNum(w / 2 - w / 3 + w / 10, h / 2 + pad + h / 3);
+            printNum(0.22 * w, 0.9 * h);
             break;
           case 1:
             if (answerTile == 3) {
-              paintNum(w / 2 - w / 3 + w / 10, h / 2 + pad + h / 3, 1);
+              paintNum(0.22 * w, 0.9 * h, 1);
             } else {
-              paintNum(w / 2 - w / 3 + w / 10, h / 2 + pad + h / 3, 0);
+              paintNum(0.22 * w, 0.9 * h, 0);
             }
             break;
           case 2:
             if (answerTile == 3) {
-              writeNum(w / 2 - w / 3 + w / 10, h / 2 + pad + h / 3, 1);
+              writeNum(0.22 * w, 0.9 * h, 1);
             } else {
-              writeNum(w / 2 - w / 3 + w / 10, h / 2 + pad + h / 3, 0);
+              writeNum(0.22 * w, 0.9 * h, 0);
             }
         }
       }
@@ -269,24 +272,24 @@
         switch (question) {
           case 0:
             if (answerTile == 4) {
-              paint((w / 2), (h / 2 + pad), w / 3, h / 3, 1);
+              paint((0.75 - 0.4 / 2) * w, (0.9 - 0.2) * h, 0.4 * w, (0.2 + 0.05) * h, 1);
             } else {
-              paint((w / 2), (h / 2 + pad), w / 3, h / 3, 0);
+              paint((0.75 - 0.4 / 2) * w, (0.9 - 0.2) * h, 0.4 * w, (0.2 + 0.05) * h, 0);
             }
-            printNum(w / 2 + w / 10, h / 2 + pad + h / 3);
+            printNum(0.72 * w, 0.9 * h);
             break;
           case 1:
             if (answerTile == 4) {
-              paintNum(w / 2 + w / 10, h / 2 + pad + h / 3, 1);
+              paintNum(0.72 * w, 0.9 * h, 1);
             } else {
-              paintNum(w / 2 + w / 10, h / 2 + pad + h / 3, 0);
+              paintNum(0.72 * w, 0.9 * h, 0);
             }
             break;
           case 2:
             if (answerTile == 4) {
-              writeNum(w / 2 + w / 10, h / 2 + pad + h / 3, 1);
+              writeNum(0.72 * w, 0.9 * h, 1);
             } else {
-              writeNum(w / 2 + w / 10, h / 2 + pad + h / 3, 0);
+              writeNum(0.72 * w, 0.9 * h, 0);
             }
             break;
         }
@@ -338,7 +341,7 @@
        * Construct everything, assign the correct answer tile
        * Reset color array after everything finished constructing
        */
-      function drawAnswerPanel(answer, slideNum, score) {
+      function drawAnswerPanel (slideNum, answer, score) {
         var question = Math.floor((Math.random() * 3));
         var answerTile = Math.floor((Math.random() * 4) + 1);
         /**colorCoice = answer.backgroundColor;
@@ -355,16 +358,17 @@
         tile2(answerTile, question);
         tile3(answerTile, question);
         tile4(answerTile, question);
+<<<<<<< HEAD
         printBorder();
+=======
+>>>>>>> origin/master
         //drawTimer();
         colors = ["red", "yellow", "blue", "black", "purple", "brown", "cyan", "green"];
         numColors = ["red", "yellow", "blue", "black", "purple", "brown", "cyan", "green"];
         numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
         addAnswerPanelActions(answerTile);
       }
-
       drawAnswerPanel();
-
       /**
        * Frame for testing
        */
