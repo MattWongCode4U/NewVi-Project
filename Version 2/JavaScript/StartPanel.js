@@ -5,7 +5,7 @@
 function drawStartPanel(highScore) {
     clearCanvas();
     drawTitle();
-    drawHighScore(highScore);
+    drawHighScoreButton();
     drawStartButton();
 	drawMuteSoundButton();
 }
@@ -13,21 +13,20 @@ function drawStartPanel(highScore) {
 *   draw the title
 */
 function drawTitle() {
-    drawText(0.2, 0.5, 0.15, "blue", "NewVi");
+    drawText(0.3, 0.5, 0.15, "blue", "NewVi");
 }
 /*
 *   draw high score
 *   @param highScore highest score on this machine
 */
-function drawHighScore(highScore) {
-    drawText(0.4, 0.5, 0.075, "black", "High Score");
-    drawText(0.5, 0.5, 0.075, "black", highScore);
+function drawHighScoreButton() {
+    drawButton(0.6, 0.5, 0.075, "white", "High Score", "green", 0.6);
 }
 /*
 *   draw start button
 */
 function drawStartButton() {
-    drawButton(0.8, 0.5, 0.1, "white", "Start", "green", 0.6);
+    drawButton(0.8, 0.5, 0.1, "white", "Start", "red", 0.6);
 }
 
 //displays the mute sound button
