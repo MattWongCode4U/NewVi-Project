@@ -10,6 +10,7 @@ function runGame() {
     var highScore = 0;
     var level = 1;
     var answerArray = [];
+    var answerTile;
     
     drawStartPanel(highScore);
 	canvas.addEventListener('click', muteButtonEventListener);
@@ -35,7 +36,7 @@ function runGame() {
     *   
     */
     function observationPanelEventListener() {
-        var answerTile = Math.floor((Math.random() * 4) + 1);
+        answerTile = Math.floor((Math.random() * 4) + 1);
         setTimeout(function() {
             drawAnswerPanel(currentSlide, answerArray[0], answerTile);
             canvas.addEventListener('click', answerPanelEventListener);
@@ -52,28 +53,44 @@ function runGame() {
         if (eventListener(0.6, 0.25, 0.2, 0.4, event.offsetX, event.offsetY)) {
             canvas.removeEventListener('click', answerPanelEventListener);
             clicked = true;
+            if(answerTile == 1) {
+                correct = true;
+            }
         }
         // box two
         else if (eventListener(0.6, 0.75, 0.2, 0.4, event.offsetX, event.offsetY)) {
             canvas.removeEventListener('click', answerPanelEventListener);
             clicked = true;
+            if(answerTile == 2) {
+                correct = true;
+            }
         }
         // box three
         else if (eventListener(0.9, 0.25, 0.2, 0.4, event.offsetX, event.offsetY)) {
             canvas.removeEventListener('click', answerPanelEventListener);
             clicked = true;
+            if(answerTile == 3) {
+                correct = true;
+            }
         }
         // box four
         else if (eventListener(0.9, 0.75, 0.2, 0.4, event.offsetX, event.offsetY)) {
             canvas.removeEventListener('click', answerPanelEventListener);
             clicked = true;
-        }
+            if(answerTile == 4) {
+                correct = true;
+            }
+        } /*
+        if (correct == true) {
+            playAudio('success');
+        } else {
+            playAudio('fail');
+        }*/
         if (clicked == true) {
             drawEndPanel(currentScore, highScore);
             canvas.addEventListener('click', endPanelEventListener);
         } 
     } 
-    
     /*
     *
     */
