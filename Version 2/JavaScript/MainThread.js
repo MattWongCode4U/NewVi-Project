@@ -30,6 +30,20 @@ function runGame() {
             drawObservationPanel(currentSlide, answerArray[0], randomBoxGenerator(2));
             observationPanelEventListener();
         }
+        else if (eventListener(0.6, 0.5, 0.075, 0.6, event.offsetX, event.offsetY)) {
+            canvas.removeEventListener('click', startPanelEventListener);
+            drawHighScorePanel();
+            canvas.addEventListener('click', highScorePanelEventListener);
+        }
+    }
+    function highScorePanelEventListener(event) {
+        if (eventListener(0.85, 0.5, 0.075, 0.5, event.offsetX, event.offsetY)) {
+            // remove start button and draw the observation panel and its action listener
+            canvas.removeEventListener('click', highScorePanelEventListener);
+            drawStartPanel(highScore);
+            canvas.addEventListener('click', startPanelEventListener);
+        }
+        
     }
     /*
     *   
