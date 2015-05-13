@@ -356,7 +356,7 @@
         tile3(answerTile, question);
         tile4(answerTile, question);
         printBorder();
-        drawTimer();
+        //drawTimer();
         colors = ["red", "yellow", "blue", "black", "purple", "brown", "cyan", "green"];
         numColors = ["red", "yellow", "blue", "black", "purple", "brown", "cyan", "green"];
         numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
