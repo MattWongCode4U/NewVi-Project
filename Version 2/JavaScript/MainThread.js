@@ -35,16 +35,15 @@ function runGame() {
     *   
     */
     function observationPanelEventListener() {
+        var answerTile = Math.floor((Math.random() * 4) + 1);
         setTimeout(function() {
-            drawAnswerPanel(currentSlide, answerArray[0]);
+            drawAnswerPanel(currentSlide, answerArray[0], answerTile);
             canvas.addEventListener('click', answerPanelEventListener);
         }, 3000);
     }
     /*
     *
     */
-
-    /*
     function answerPanelEventListener(event) {
         // variables
         var clicked = false;
@@ -73,7 +72,7 @@ function runGame() {
             drawEndPanel(currentScore, highScore);
             canvas.addEventListener('click', endPanelEventListener);
         } 
-    } */
+    } 
     
     /*
     *
