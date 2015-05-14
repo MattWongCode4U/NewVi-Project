@@ -49,7 +49,7 @@ function clickButton(box_x, box_y, width, height, f) {
         if (collision(box_x, box_y, width, height, x, y)) {
             clearCanvas();
             f();
-			this.removeEventListener('click', arguments.callee);
+			      this.removeEventListener('click', arguments.callee);
         }
     }, false);
 }
@@ -63,30 +63,3 @@ function playAudio(music){
 	soundclip.play();
 }
 
-function heartLives() {
-    var canvas = document.getElementById('game');
-    var ctx = canvas.getContext('2d');
-    var width = canvas.width;
-    var image = new Image();
-    var text = ": ";
-  
-    ctx.fillStyle = "black";
-    ctx.font = "bold " + width / 20 + "px Arial";
-    ctx.fillText(text, 35, 22.5);
-    
-    image.onload = function() {
-        ctx.drawImage(image, 5, 5, 30, 30);
-    };
-    image.src = "Images/heart3.png";
-}
-
-function scoreOnPage() {
-    var canvas = document.getElementById('game');
-    var ctx = canvas.getContext('2d');
-    var width = canvas.width;
-    var text = "Score:";
-
-    ctx.fillStyle = 'black';
-    ctx.font = "bold " + width * 7 / 120 + "px Arial";
-    ctx.fillText(text, 200, 25);
-}
