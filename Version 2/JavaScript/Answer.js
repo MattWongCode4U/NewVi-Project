@@ -21,6 +21,7 @@ function drawAnswerPanel(slideNum, answer, answerTile, score) {
       var numColorChoice = "black";
       // Setting up fond information and begin the drawing
       ctx.beginPath();
+      ctx.lineWidth = 1;
       ctx.font = "bold " + (0.1 * h) + "px Aerial ";
       ctx.textBaseline = "bottom";
       /**

@@ -41,14 +41,13 @@ function drawCircleTimer() {
     var sec = 240;
     var countdown = sec;
     var width = canvas.width;
-
     ctx.lineWidth = 8;
     ctx.strokeStyle = "#528f20";
     
+    ctx.beginPath();
     var startAngle = 0; 
     var time = 0;
     var intv = setInterval(function(){
-
     ctx.clearRect(width / 60, width / 60, width * 0.2, width * 0.2);
     var endAngle = (Math.PI * time * 2 / sec);
     ctx.save();
@@ -61,7 +60,7 @@ function drawCircleTimer() {
         
     countdown--;
         
-    if (++time > sec,countdown == 0 ) { clearInterval(intv);}
-                                   
+    if (++time > sec,countdown == 0 ) { clearInterval(intv);}                               
     }, 10);   
+    ctx.closePath(); 
 }
