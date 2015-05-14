@@ -14,8 +14,9 @@ function runGame() {
     var answerArray = [];
     var answerTile;
     var life;
+	var playerName = "Player";
     
-    drawStartPanel(highScore);
+    drawStartPanel(playerName);
 	canvas.addEventListener('click', muteButtonEventListener);
     canvas.addEventListener('click', startPanelEventListener);
     
@@ -23,6 +24,7 @@ function runGame() {
     *   the start button on-click action
     */
     function startPanelEventListener(event) {
+<<<<<<< HEAD
 		if (eventListener(0.8, 0.5, 0.1, 0.6, event.offsetX, event.offsetY)) {
             secondBoxNum;
             firstBoxNum = Math.floor(Math.random() * 2 + 1);
@@ -30,6 +32,20 @@ function runGame() {
                 secondBoxNum = 1;
             } else {
                 secondBoxNum = 2;
+=======
+		// player name
+        if (eventListener(0.45, 0.5, 0.1, 1, event.offsetX, event.offsetY)) {
+            drawKeyboardPanel();
+            canvas.removeEventListener('click', startPanelEventListener);
+            canvas.addEventListener('click', keyboardPanelEventListener);
+			drawTextInput(playerName);
+        }
+		// start
+		else if (eventListener(0.8, 0.5, 0.1, 0.6, event.offsetX, event.offsetY)) {
+            // generate boxes to be displayed
+            for (var i = 0; i < level; i++) {
+                answerArray.push(randomBoxGenerator(1));
+>>>>>>> origin/master
             }
             // generate boxes to be displayed
             answerArray.push(randomBoxGenerator(firstBoxNum));
@@ -39,6 +55,7 @@ function runGame() {
             drawObservationPanel(currentSlide, answerArray[0], randomBoxGenerator(secondBoxNum));
             observationPanelEventListener(answerArray[0]);
         }
+		// highscore
         else if (eventListener(0.6, 0.5, 0.075, 0.6, event.offsetX, event.offsetY)) {
             canvas.removeEventListener('click', startPanelEventListener);
 			canvas.removeEventListener('click', muteButtonEventListener);
@@ -54,7 +71,7 @@ function runGame() {
         if (eventListener(0.85, 0.5, 0.075, 0.5, event.offsetX, event.offsetY)) {
             // remove start button and draw the observation panel and its action listener
             canvas.removeEventListener('click', highScorePanelEventListener);
-            drawStartPanel(highScore);
+            drawStartPanel(playerName);
             canvas.addEventListener('click', startPanelEventListener);
 			canvas.addEventListener('click', muteButtonEventListener);
         }
@@ -125,7 +142,14 @@ function runGame() {
     *
     */
     function endPanelEventListener(event) {
+<<<<<<< HEAD
 		// restar
+=======
+		// post highscore to database
+		postHighscore(playerName, currentScore);
+		
+		// restart
+>>>>>>> origin/master
         if (eventListener(0.7, 0.5, 0.1, 0.6, event.offsetX, event.offsetY)) {
             secondBoxNum;
             firstBoxNum = Math.floor(Math.random() * 2 + 1);
@@ -154,7 +178,7 @@ function runGame() {
 			canvas.removeEventListener('click', endPanelEventListener);
             canvas.addEventListener('click', startPanelEventListener);
 			canvas.addEventListener('click', muteButtonEventListener);
-            drawStartPanel(highScore); 
+            drawStartPanel(playerName); 
         }  
     }
 	
@@ -171,5 +195,143 @@ function runGame() {
 			//drawButton(0.1,0.9,0.075,'White','Black','Black',0.13);
 			//alert("alert");
 		}
+	}
+	
+	/*
+	* 
+	*/
+	function keyboardPanelEventListener(event) {
+        var text = drawTextInput("");
+		clearInterval(text);
+        if (eventListener(0.65, 0.05, 0.045, 0.09, event.offsetX, event.offsetY)) {
+            playerName = playerName + "Q";
+            text = drawTextInput(playerName);
+        }
+        else if (eventListener(0.65, 0.15, 0.045, 0.09, event.offsetX, event.offsetY)) {
+            playerName = playerName + "W";
+            text = drawTextInput(playerName);
+        }
+        else if (eventListener(0.65, 0.25, 0.045, 0.09, event.offsetX, event.offsetY)) {
+            playerName = playerName + "E";
+            text = drawTextInput(playerName);
+        }
+        else if (eventListener(0.65, 0.35, 0.045, 0.09, event.offsetX, event.offsetY)) {
+            playerName = playerName + "R";
+            text = drawTextInput(playerName);
+        }
+        else if (eventListener(0.65, 0.45, 0.045, 0.09, event.offsetX, event.offsetY)) {
+            playerName = playerName + "T";
+            text = drawTextInput(playerName);
+        }
+        else if (eventListener(0.65, 0.55, 0.045, 0.09, event.offsetX, event.offsetY)) {
+            playerName = playerName + "Y";
+            text = drawTextInput(playerName);
+        }
+        else if (eventListener(0.65, 0.65, 0.045, 0.09, event.offsetX, event.offsetY)) {
+            playerName = playerName + "U";
+            text = drawTextInput(playerName);
+        }
+        else if (eventListener(0.65, 0.75, 0.045, 0.09, event.offsetX, event.offsetY)) {
+            playerName = playerName + "I";
+            text = drawTextInput(playerName);
+        }
+        else if (eventListener(0.65, 0.85, 0.045, 0.09, event.offsetX, event.offsetY)) {
+            playerName = playerName + "O";
+            text = drawTextInput(playerName);
+        }
+        else if (eventListener(0.65, 0.95, 0.045, 0.09, event.offsetX, event.offsetY)) {
+            playerName = playerName + "P";
+            text = drawTextInput(playerName);
+        }
+        else if (eventListener(0.75, 0.05, 0.045, 0.09, event.offsetX, event.offsetY)) {
+            playerName = playerName + "A";
+            text = drawTextInput(playerName);
+        }
+        else if (eventListener(0.75, 0.15, 0.045, 0.09, event.offsetX, event.offsetY)) {
+            playerName = playerName + "S";
+            text = drawTextInput(playerName);
+        }
+        else if (eventListener(0.75, 0.25, 0.045, 0.09, event.offsetX, event.offsetY)) {
+            playerName = playerName + "D";
+            text = drawTextInput(playerName);
+        }
+        else if (eventListener(0.75, 0.35, 0.045, 0.09, event.offsetX, event.offsetY)) {
+            playerName = playerName + "F";
+            text = drawTextInput(playerName);
+        }
+        else if (eventListener(0.75, 0.45, 0.045, 0.09, event.offsetX, event.offsetY)) {
+            playerName = playerName + "G";
+            text = drawTextInput(playerName);
+        }
+        else if (eventListener(0.75, 0.55, 0.045, 0.09, event.offsetX, event.offsetY)) {
+            playerName = playerName + "H";
+            text = drawTextInput(playerName);
+        }
+        else if (eventListener(0.75, 0.65, 0.045, 0.09, event.offsetX, event.offsetY)) {
+            playerName = playerName + "J";
+            text = drawTextInput(playerName);
+        }
+        else if (eventListener(0.75, 0.75, 0.045, 0.09, event.offsetX, event.offsetY)) {
+            playerName = playerName + "K";
+            text = drawTextInput(playerName);
+        }
+        else if (eventListener(0.75, 0.85, 0.045, 0.09, event.offsetX, event.offsetY)) {
+            playerName = playerName + "L";
+            text = drawTextInput(playerName);
+        }
+        else if (eventListener(0.85, 0.05, 0.045, 0.09, event.offsetX, event.offsetY)) {
+            playerName = playerName + "Z";
+            text = drawTextInput(playerName);
+        }
+        else if (eventListener(0.85, 0.15, 0.045, 0.09, event.offsetX, event.offsetY)) {
+            playerName = playerName + "X";
+            text = drawTextInput(playerName);
+        }
+        else if (eventListener(0.85, 0.25, 0.045, 0.09, event.offsetX, event.offsetY)) {
+            playerName = playerName + "C";
+            text = drawTextInput(playerName);
+        }
+        else if (eventListener(0.85, 0.35, 0.045, 0.09, event.offsetX, event.offsetY)) {
+            playerName = playerName + "V";
+            text = drawTextInput(playerName);
+        }
+        else if (eventListener(0.85, 0.45, 0.045, 0.09, event.offsetX, event.offsetY)) {
+            playerName = playerName + "B";
+            text = drawTextInput(playerName);
+        }
+        else if (eventListener(0.85, 0.55, 0.045, 0.09, event.offsetX, event.offsetY)) {
+            playerName = playerName + "N";
+            text = drawTextInput(playerName);
+        }
+        else if (eventListener(0.85, 0.65, 0.045, 0.09, event.offsetX, event.offsetY)) {
+            playerName = playerName + "M";
+            text = drawTextInput(playerName);
+        }
+		// enter key - gets out of name typing
+		else if (eventListener(0.85, 0.85, 0.045, 0.29, event.offsetX, event.offsetY)) {
+			drawStartPanel(playerName);
+			canvas.removeEventListener('click', keyboardPanelEventListener);
+			canvas.addEventListener('click', startPanelEventListener);
+		}
+		else if (eventListener(0.95, 0.5, 0.045, 0.99, event.offsetX, event.offsetY)) {
+			playerName = playerName + " ";
+			text = drawTextInput(playerName);
+		}
+		else {
+			text = drawTextInput(playerName);
+		}
+    }
+	
+	/*
+	* 
+	*/
+	function postHighscore(pName, currScore) {
+		$.ajax({
+			url: "https://api.mongolab.com/api/1/databases/newvi/collections/leaderboards?apiKey=yXsXCeqDNLQW5jM2X6kHO9RzosAJ2QWO",
+			data: JSON.stringify( { "name" : pName, "highscore" : currScore}),
+			type: "POST",
+			contentType: "application/json"
+				
+		});
 	}
 }
