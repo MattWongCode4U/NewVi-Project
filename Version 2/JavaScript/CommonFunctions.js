@@ -167,3 +167,25 @@ function playAudio(music){
     var soundclip = document.getElementById(music);
     soundclip.play();
 }
+
+/*
+*
+*/
+function drawTextInput(text) {
+    // variables
+    var canvas = document.getElementById("game");
+	var ctx = canvas.getContext("2d");
+    //var bar = true;
+    //var test = setInterval(function() {
+        ctx.clearRect(0, 0.3 * canvas.height, canvas.width, canvas.height * 0.15);    
+      //  if (bar)
+        //{
+          //  drawText(0.4, 0.5, 0.1, "black", text + "|");
+            //bar = false;
+   //     }
+     //   else {
+            drawText(0.4, 0.5, 0.1, "black", text + " ");
+       //     bar = true;
+       // }    
+    //}, 700);
+}
