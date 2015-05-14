@@ -68,4 +68,3 @@ function init() {
 }
 //Calls the init function when everything is done loaded this line is mandatory.
 document.addEventListener("DOMContentLoaded", init, false);
-/*Testing*/
