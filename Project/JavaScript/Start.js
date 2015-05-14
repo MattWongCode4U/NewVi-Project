@@ -173,23 +173,6 @@ function drawCircleTimer() {
     }, 10);   
 }
 
-/*function drawTextTimer() {
-    var canvas  = document.getElementById('game');
-    var ctx = canvas.getContext("2d");
-    var width = canvas.width;
-    var start = 5;
-    var countdown = start;
-
-    ctx.font = "bold" + width / 30 + "px Arial";
-    ctx.fillStyle = "#528f20";
-    ctx.fillText(start, 20, 100);
-    countdown--;
-}*/
-
-/*
-*   draw the start panel
-*   @param highScore highest score
-*/
 function drawStartPanel(highScore) {
     drawTitle();
     drawStartButton();
@@ -197,5 +180,4 @@ function drawStartPanel(highScore) {
     addStartPanelActions();
     drawMuteSoundButton();
     drawCircleTimer();
-    //drawTextTimer();
 }
