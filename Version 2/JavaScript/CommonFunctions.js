@@ -135,7 +135,7 @@ function randomBoxGenerator(boxNumber) {
     return random;
 }
 
-function heartLives() {
+function drawHeartLives() {
     var canvas = document.getElementById('game');
     var ctx = canvas.getContext('2d');
     var width = canvas.width;
@@ -143,16 +143,16 @@ function heartLives() {
     var text = ": ";
   
     ctx.fillStyle = "black";
-    ctx.font = "bold " + width / 20 + "px Arial";
-    ctx.fillText(text, 35, 22.5);
+    ctx.font = "bold " + width * 7 / 120 + "px Arial";
+    ctx.fillText(text, width * 2 / 15, width * 0.075);
     
     image.onload = function() {
-        ctx.drawImage(image, 5, 5, 30, 30);
+        ctx.drawImage(image, width / 60, width / 60, width * 0.1, width * 0.1);
     };
     image.src = "Images/heart3.png";
 }
 
-function scoreOnPage() {
+function drawScore() {
     var canvas = document.getElementById('game');
     var ctx = canvas.getContext('2d');
     var width = canvas.width;
@@ -160,5 +160,5 @@ function scoreOnPage() {
 
     ctx.fillStyle = 'black';
     ctx.font = "bold " + width * 7 / 120 + "px Arial";
-    ctx.fillText(text, 200, 25);
+    ctx.fillText(text, width * 0.75, width / 12);
 }
