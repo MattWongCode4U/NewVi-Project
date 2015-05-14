@@ -5,6 +5,8 @@ function runGame() {
     // variables
     var canvas = document.getElementById("game");
 	var ctx = canvas.getContext("2d");
+    var firstBoxNum;
+    var secondBoxNum;
     var currentSlide = 1;
     var currentScore = 0;
     var highScore = 0;
@@ -22,15 +24,20 @@ function runGame() {
     */
     function startPanelEventListener(event) {
 		if (eventListener(0.8, 0.5, 0.1, 0.6, event.offsetX, event.offsetY)) {
-            // generate boxes to be displayed
-            for (var i = 0; i < level; i++) {
-                answerArray.push(randomBoxGenerator(1));
+            secondBoxNum;
+            firstBoxNum = Math.floor(Math.random() * 2 + 1);
+            if(firstBoxNum == 2) {
+                secondBoxNum = 1;
+            } else {
+                secondBoxNum = 2;
             }
+            // generate boxes to be displayed
+            answerArray.push(randomBoxGenerator(firstBoxNum));
             // remove start button and draw the observation panel and its action listener
             canvas.removeEventListener('click', startPanelEventListener);
 			canvas.removeEventListener('click', muteButtonEventListener);
-            drawObservationPanel(currentSlide, answerArray[0], randomBoxGenerator(2));
-            observationPanelEventListener();
+            drawObservationPanel(currentSlide, answerArray[0], randomBoxGenerator(secondBoxNum));
+            observationPanelEventListener(answerArray[0]);
         }
         else if (eventListener(0.6, 0.5, 0.075, 0.6, event.offsetX, event.offsetY)) {
             canvas.removeEventListener('click', startPanelEventListener);
@@ -57,10 +64,10 @@ function runGame() {
     /*
     *   
     */
-    function observationPanelEventListener() {
+    function observationPanelEventListener(answer) {
         answerTile = Math.floor((Math.random() * 4) + 1);
         setTimeout(function() {
-            drawAnswerPanel(currentSlide, answerArray[0], answerTile);
+            drawAnswerPanel(currentSlide, answer, answerTile, currentScore);
             canvas.addEventListener('click', answerPanelEventListener);
         }, 3000);
     }
@@ -106,6 +113,7 @@ function runGame() {
         if (clicked == true) {
             if (correct == true) {
                 playAudio('success');
+                currentScore += 200;
             } else {
                 playAudio('fail');
             }
@@ -117,16 +125,23 @@ function runGame() {
     *
     */
     function endPanelEventListener(event) {
-		// restart
+		// restar
         if (eventListener(0.7, 0.5, 0.1, 0.6, event.offsetX, event.offsetY)) {
+            secondBoxNum;
+            firstBoxNum = Math.floor(Math.random() * 2 + 1);
+            if(firstBoxNum == 1) {
+                secondBoxNum = 2;
+            } else {
+                secondBoxNum = 1;
+            }
             // reset values to default values
+            var newBox = randomBoxGenerator(firstBoxNum);
 			currentScore = 0;
 			level = 1;
 			currentSlide = 1;
-			
 			canvas.removeEventListener('click', endPanelEventListener);
-            drawObservationPanel(currentSlide, randomBoxGenerator(1), randomBoxGenerator(2)); 
-            observationPanelEventListener();
+            drawObservationPanel(currentSlide, newBox, randomBoxGenerator(secondBoxNum)); 
+            observationPanelEventListener(newBox);
 			
         }
         // end game

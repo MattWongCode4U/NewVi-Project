@@ -1,4 +1,4 @@
-function drawAnswerPanel(slideNum, answer, answerTile, score) {
+function drawAnswerPanel(slideNum, answer_, answerTile, score) {
   var answer = document.getElementById("game");
           var ctx = answer.getContext("2d");
           clearCanvas();
@@ -7,20 +7,22 @@ function drawAnswerPanel(slideNum, answer, answerTile, score) {
       var w = answer.width;
       var h = answer.height;
       // Array of all possible color values used in this game
-      var colors = ["red", "yellow", "blue", "black", "purple", "brown", "cyan", "green"];
-      var numColors = ["red", "yellow", "blue", "black", "purple", "brown", "cyan", "green"];
+      var colors = ["rgb(255,0,0)","rgb(0,255,0)","rgb(0,0,255)","rgb(0,0,0)","rgb(255,255,0)"
+                ,"rgb(255,0,255)","rgb(0,255,255)","rgb(255,137,0)","rgb(108,50,0)"];
+      var numColors = ["rgb(255,0,0)","rgb(0,255,0)","rgb(0,0,255)","rgb(0,0,0)","rgb(255,255,0)"
+                ,"rgb(255,0,255)","rgb(0,255,255)","rgb(255,137,0)","rgb(108,50,0)"];
       var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
       //The object to be used to test the user, either 1 or 2
-      var tag = "Box 1";
-      // The question Number to test the user in one round
-      var slide = "Slide 1";
-      // The correct answers Number value
-      var numChoice = 1;
-      // The correct answers color value
-      var colorChoice = "red";
-      var numColorChoice = "black";
-      // Setting up fond information and begin the drawing
       ctx.beginPath();
+      var tag ="Box " + answer_.boxNumber;
+      // The question Number to test the user in one round
+      var slide = "Slide " + slideNum;
+      // The correct answers Number value
+      var numChoice = answer_.text;
+      // The correct answers color value
+      var colorChoice = answer_.boxColour;
+      var numColorChoice = answer_.fontColour;
+      // Setting up fond information and begin the drawing
       ctx.lineWidth = 1;
       ctx.font = "bold " + (0.1 * h) + "px Aerial ";
       ctx.textBaseline = "bottom";
@@ -296,26 +298,24 @@ function drawAnswerPanel(slideNum, answer, answerTile, score) {
        * Construct everything, assign the correct answer tile
        * Reset color array after everything finished constructing
        */
-      function draw(slideNum_, answer_, answerTile_, score_) {
+      function draw() {
         var question = Math.floor((Math.random() * 3));
-          /**colorCoice = answer.backgroundColor;
-        numChoice = answer.number;
-        numColorChoice = answer.numberColor;
-        tag = answer.boxNum;
-        slide = slideNum;
-        */
+        
           showFillText();
           if (question != 0) {
               printBackground();
           }
-          tile1(answerTile_, question);
-          tile2(answerTile_, question);
-          tile3(answerTile_, question);
-          tile4(answerTile_, question);
-          colors = ["red", "yellow", "blue", "black", "purple", "brown", "cyan", "green"];
-          numColors = ["red", "yellow", "blue", "black", "purple", "brown", "cyan", "green"];
+          tile1(answerTile, question);
+          tile2(answerTile, question);
+          tile3(answerTile, question);
+          tile4(answerTile, question);
+          colors = ["rgb(255,0,0)","rgb(0,255,0)","rgb(0,0,255)","rgb(0,0,0)","rgb(255,255,0)"
+                ,"rgb(255,0,255)","rgb(0,255,255)","rgb(255,137,0)","rgb(108,50,0)"];
+          numColors = ["rgb(255,0,0)","rgb(0,255,0)","rgb(0,0,255)","rgb(0,0,0)","rgb(255,255,0)"
+                ,"rgb(255,0,255)","rgb(0,255,255)","rgb(255,137,0)","rgb(108,50,0)"];
           numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
       }
+
       draw(slideNum, answer, answerTile, score);
         /**
        * Frame for testing
