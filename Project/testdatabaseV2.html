@@ -8,45 +8,25 @@
 r = new XMLHttpRequest();
 
 r.open("GET", "https://api.mongolab.com/api/1/databases/newvi/collections/leaderboards?s={%22highscore%22:-1}&l=5&apiKey=yXsXCeqDNLQW5jM2X6kHO9RzosAJ2QWO", true);
-alert("even before everything");
-if(r.readyState == 0){
-	alert("ready state = 0");
-}
-if(r.readyState == 1){
-	alert("ready state = 1");
-}
-if(r.readyState == 2){
-	alert("ready state = 2");
-}
-if(r.readyState == 3){
-	alert("ready state = 3");
-}
-if(r.readyState ==4){
-	alert("ready state = 4");
-}
 r.onreadystatechange=function(){
-alert("before");
 if(r.readyState == 4){
 	var string = JSON.parse(r.responseText);
 	for(var i = 0; i < string.length; i++) {
-	//$('.Number0').append(string[i].highscore);
-		alert(string[i].name);
-}
+	$('.Name' + i).append(string[i].name);
+	}
+} 
 };
-
-r.send(null);
-}        </script>
+r.send(null);     
+   </script>
     </head>
 
     <body >
         <div>
-            <p class="Name">Name: </p>
-            <p class="Score">Highscore:  </p>
-			<p class="Number0">Number 0</p>
-			<p class="Number1">Number 1</p>
-			<p class="Number2">Number 2</p>
-			<p class="Number3">Number 3</p>
-			<p class="Number4">Number 4</p>
+			<p class="Name0">Number 1 name: </p>
+			<p class="Name1">Number 2 name: </p>
+			<p class="Name2">Number 3 name: </p>
+			<p class="Name3">Number 4 name: </p>
+			<p class="Name4">Number 5 name: </p>
         </div>
     </body>
 </html>

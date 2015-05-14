@@ -7,10 +7,14 @@ function drawStartPanel(playerName) {
     drawTitle();
     drawHighScoreButton();
     drawStartButton();
+<<<<<<< HEAD
 	  //drawMuteSoundButton();
     drawHeartLives();
     drawScore();
 	drawPlayerName(playerName);
+=======
+	  drawMuteSoundButton();
+>>>>>>> origin/master
 }
 /*
 *   draw the title
