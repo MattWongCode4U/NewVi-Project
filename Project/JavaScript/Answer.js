@@ -358,10 +358,8 @@
         tile2(answerTile, question);
         tile3(answerTile, question);
         tile4(answerTile, question);
-<<<<<<< HEAD
         printBorder();
-=======
->>>>>>> origin/master
+
         //drawTimer();
         colors = ["red", "yellow", "blue", "black", "purple", "brown", "cyan", "green"];
         numColors = ["red", "yellow", "blue", "black", "purple", "brown", "cyan", "green"];
