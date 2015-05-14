@@ -27,6 +27,7 @@ function runGame() {
             drawKeyboardPanel();
             canvas.removeEventListener('click', startPanelEventListener);
             canvas.addEventListener('click', keyboardPanelEventListener);
+			drawTextInput(playerName);
         }
 		// start
 		else if (eventListener(0.8, 0.5, 0.1, 0.6, event.offsetX, event.offsetY)) {
