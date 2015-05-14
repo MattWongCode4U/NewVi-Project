@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<!-- This is the answer page panel -->
+
+<head>
+  <title>Test responsive canvas</title>
+  <script src="../Bootstrap/js/jquery-2.1.4.min.js"></script>
+    <script src="../Bootstrap/js/bootstrap.js"></script>
+    <script src="../Bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../Bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../Bootstrap/css/bootstrap-theme.min.css">
+  <script src = "../JavaScript/CommonFunctions.js"></script>
+  <script src ="../JavaScript/Answer.js"></script>
+</head>
+
+<body onLoad="answerFrame()">
+  <audio id = "horse">
+    <source src = "../Sound/Horse.mp3" type"audio">
+  </audio>
+  <audio id = "correct">
+    <source src = "../Sound/Correct Answer 1.mp3" type"audio">
+  </audio>
+  <div class="container">
+    <div class="col-lg-12 col-md-12 col-sm-12 text-center">
+      <canvas id="game" width="300" height="300"></canvas>
+    </div>
+  </div>
+</body>
+
+</html>
