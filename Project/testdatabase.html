@@ -4,15 +4,19 @@
         <title>Hello jQuery</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script>
-   	 		$.ajax({
-   	     		url: "https://api.mongolab.com/api/1/databases/newvi/collections/leaderboards?s={%22highscore%22:-1}&l=6&apiKey=yXsXCeqDNLQW5jM2X6kHO9RzosAJ2QWO",
-   	     		type: "GET",
-   	     		contentType: "application/json",
-   	     		success: function(data) {
-   	     			document.writeln(data);
-   	     		}
 
-   	 		});
+r = new XMLHttpRequest();
+
+r.open("GET", "https://api.mongolab.com/api/1/databases/newvi/collections/leaderboards?s={%22highscore%22:-1}&l=9&apiKey=yXsXCeqDNLQW5jM2X6kHO9RzosAJ2QWO", true);
+r.onreadystatechange=function(){
+if(r.readyState == 4){
+	var string = JSON.parse(r.responseText);
+	for(var i = 0; i < string.length; i++) {
+	$('.Number' + i).append(string[i]);
+}
+};
+
+r.send(null);
         </script>
     </head>
 

@@ -11,6 +11,7 @@ function runGame() {
     var level = 1;
     var answerArray = [];
     var answerTile;
+    var life;
     
     drawStartPanel(highScore);
 	canvas.addEventListener('click', muteButtonEventListener);
@@ -46,6 +47,7 @@ function runGame() {
         }
         
     }
+
     /*
     *   
     */
