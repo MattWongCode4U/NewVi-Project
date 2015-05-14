@@ -7,9 +7,7 @@ function drawStartPanel(highScore) {
     drawTitle();
     drawHighScoreButton();
     drawStartButton();
-	  //drawMuteSoundButton();
-    drawHeartLives();
-    drawScore();
+	  drawMuteSoundButton();
 }
 /*
 *   draw the title
