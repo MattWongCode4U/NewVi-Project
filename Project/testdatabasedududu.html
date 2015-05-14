@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hello jQuery</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script>
+
+r = new XMLHttpRequest();
+
+r.open("GET", "https://api.mongolab.com/api/1/databases/newvi/collections/leaderboards?s={%22highscore%22:-1}&l=9&apiKey=yXsXCeqDNLQW5jM2X6kHO9RzosAJ2QWO", true);
+r.onreadystatechange=function(){
+if(r.readyState == 4){
+	var string = JSON.parse(r.responseText);
+	for(var i = 0; i < string.length; i++) {
+	$('.Number' + i).append(string[i]);
+}
+};
+
+r.send(null);
+        </script>
+    </head>
+
+    <body>
+        <div>
+            <p class="Name">Name: </p>
+            <p class="Score">Highscore:  </p>
+        </div>
+    </body>
+</html>

@@ -290,50 +290,6 @@ function drawAnswerPanel(slideNum, answer, answerTile, score) {
                   break;
           }
       }
-      /**
-      function mainThrower(answer, tile) {
-        if(answer == tile) {
-          playAudio('success');
-      drawObservationPanel(2);
-          return true;
-        } else {
-          playAudio('fail');
-      clearCanvas();
-      drawEndPanel(1000, 9000);
-          return false;
-        }
-      }
-
-      function addAnswerPanelActions(answer) {
-        clickButton(w / 2 - w / 3, h / 2 - h / 3 + pad, w / 3, h / 3, function (){mainThrower(answer, 1);});
-        clickButton(w / 2, h / 2 - h / 3 + pad, w / 3, h / 3, function (){mainThrower(answer, 2);});
-        clickButton(w / 2 - w / 3, h / 2 + pad, w / 3, h / 3, function (){mainThrower(answer, 3);});
-        clickButton(w / 2, h / 2  + pad, w / 3, h / 3, function (){mainThrower(answer, 4);});
-      }
-      */
-
-      function drawTimer() {
-          ctx.closePath();
-          ctx.beginPath();
-          var width = w;
-          var counter = 5;
-          var start = 5;
-          ctx.font = "bold 20px Arial";
-          ctx.fillText(start, width / 30, width / 12);
-          var loop = setInterval(
-
-          function () {
-              if (counter != 1) {
-                  counter--;
-                  ctx.clearRect(5, 5, width / 6, width * 2 / 15);
-                  ctx.fillText(counter, width / 30, width / 12);
-              } else if (counter == 1) {
-                  ctx.clearRect(5, 5, width / 6, width * 2 / 15);
-                  return false;
-              }
-          }, 1000);
-
-      }
 
       /**
        * Construct everything, assign the correct answer tile
@@ -355,7 +311,6 @@ function drawAnswerPanel(slideNum, answer, answerTile, score) {
           tile2(answerTile_, question);
           tile3(answerTile_, question);
           tile4(answerTile_, question);
-          //drawTimer();
           colors = ["red", "yellow", "blue", "black", "purple", "brown", "cyan", "green"];
           numColors = ["red", "yellow", "blue", "black", "purple", "brown", "cyan", "green"];
           numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];

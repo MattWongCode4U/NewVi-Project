@@ -11,6 +11,7 @@ function runGame() {
     var level = 1;
     var answerArray = [];
     var answerTile;
+    var life;
     
     drawStartPanel(highScore);
 	canvas.addEventListener('click', muteButtonEventListener);
@@ -46,6 +47,7 @@ function runGame() {
         }
         
     }
+
     /*
     *   
     */
@@ -94,13 +96,13 @@ function runGame() {
             if(answerTile == 4) {
                 correct = true;
             }
-        } /*
-        if (correct == true) {
-            playAudio('success');
-        } else {
-            playAudio('fail');
-        }*/
+        } 
         if (clicked == true) {
+            if (correct == true) {
+                playAudio('success');
+            } else {
+                playAudio('fail');
+            }
             drawEndPanel(currentScore, highScore);
             canvas.addEventListener('click', endPanelEventListener);
         } 

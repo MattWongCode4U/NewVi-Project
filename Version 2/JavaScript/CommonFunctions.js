@@ -162,3 +162,8 @@ function drawScore() {
     ctx.font = "bold " + width * 7 / 120 + "px Arial";
     ctx.fillText(text, width * 0.75, width / 12);
 }
+
+function playAudio(music){
+    var soundclip = document.getElementById(music);
+    soundclip.play();
+}
