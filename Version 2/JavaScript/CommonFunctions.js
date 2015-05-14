@@ -134,3 +134,8 @@ function randomBoxGenerator(boxNumber) {
     // return box information
     return random;
 }
+
+function playAudio(music){
+    var soundclip = document.getElementById(music);
+    soundclip.play();
+}

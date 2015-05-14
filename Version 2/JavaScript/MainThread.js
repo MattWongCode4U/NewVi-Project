@@ -96,13 +96,13 @@ function runGame() {
             if(answerTile == 4) {
                 correct = true;
             }
-        } /*
-        if (correct == true) {
-            playAudio('success');
-        } else {
-            playAudio('fail');
-        }*/
+        } 
         if (clicked == true) {
+            if (correct == true) {
+                playAudio('success');
+            } else {
+                playAudio('fail');
+            }
             drawEndPanel(currentScore, highScore);
             canvas.addEventListener('click', endPanelEventListener);
         } 
