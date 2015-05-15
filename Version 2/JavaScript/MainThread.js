@@ -94,6 +94,7 @@ function runGame() {
         // variables
         var clicked = false;
         var correct = false;
+        var audio = document.getElementById("background_audio");
         // box one
         if (eventListener(0.6, 0.25, 0.2, 0.4, event.offsetX, event.offsetY)) {
             canvas.removeEventListener('click', answerPanelEventListener);
@@ -128,10 +129,22 @@ function runGame() {
         } 
         if (clicked == true) {
             if (correct == true) {
-                playAudio('success');
+                audio.pause();
+                if(audio.paused) { 
+                   playAudio('success');
+                    setTimeout(function() {
+                        audio.play();
+                    }, 3000);
+                }
                 currentScore += 200;
             } else {
-                playAudio('fail');
+                audio.pause();
+                if(audio.paused) {
+                    playAudio('fail');
+                    setTimeout(function() {
+                        audio.play();
+                    }, 4000);
+                }                
             }
             drawEndPanel(currentScore, highScore);
             canvas.addEventListener('click', endPanelEventListener);

@@ -7,11 +7,8 @@ function drawStartPanel(playerName) {
     drawTitle();
     drawHighScoreButton();
     drawStartButton();
-	  drawMuteSoundButton();
-	drawPlayerName(playerName);
-
-	  drawMuteSoundButton();
-
+	  drawUnmuteSoundButton();
+	  drawPlayerName(playerName);
 }
 /*
 *   draw the title
@@ -62,7 +59,7 @@ function drawUnmuteSoundButton() {
     ctx.drawImage(image, width * 49 / 60, height / 150, width * 0.16, height * 0.16);
   };
   //image source
-  image.src = "Images/Unmute.png"; 
+  image.src = "Images/Unmute2.png"; 
 }
 
 //toggle to mute/unmute the sound
@@ -71,14 +68,15 @@ function toggleSound() {
     var canvas = document.getElementById("game");
     var ctx = canvas.getContext("2d");
     var width = canvas.width;
+
     if(audio.paused) {
-		audio.play();
-		ctx.clearRect(width * 49 / 60, width / 150, width * 0.16, width * 0.16);
-		drawMuteSoundButton();
+		  audio.play();
+		  ctx.clearRect(width * 49 / 60, width / 150, width * 0.16, width * 0.16);
+		  drawUnmuteSoundButton();
     } else {
-		audio.pause();
-		ctx.clearRect(width * 49 / 60, width / 150, width * 0.16, width * 0.16);
-		drawUnmuteSoundButton();
+		  audio.pause();
+		  ctx.clearRect(width * 49 / 60, width / 150, width * 0.16, width * 0.16);
+		  drawMuteSoundButton();
     }
 }
 
