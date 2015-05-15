@@ -152,11 +152,11 @@ function drawHeartLives() {
     image.src = "Images/heart3.png";
 }
 
-function drawScore() {
+function drawScore(score) {
     var canvas = document.getElementById('game');
     var ctx = canvas.getContext('2d');
     var width = canvas.width;
-    var text = "Score:";
+    var text = "Score:" + score;
 
     ctx.fillStyle = 'black';
     ctx.font = "bold " + width * 7 / 120 + "px Arial";

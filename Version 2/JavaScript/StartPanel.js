@@ -7,9 +7,7 @@ function drawStartPanel(playerName) {
     drawTitle();
     drawHighScoreButton();
     drawStartButton();
-	  //drawMuteSoundButton();
-    drawHeartLives();
-    drawScore();
+	  drawMuteSoundButton();
 	drawPlayerName(playerName);
 
 	  drawMuteSoundButton();
