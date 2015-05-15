@@ -305,6 +305,8 @@ function drawAnswerPanel(slideNum, answer_, answerTile, score) {
           if (question != 0) {
               printBackground();
           }
+          //drawHeartLives();
+          //drawScore(score);
           tile1(answerTile, question);
           tile2(answerTile, question);
           tile3(answerTile, question);

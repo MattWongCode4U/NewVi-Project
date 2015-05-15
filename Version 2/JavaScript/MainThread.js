@@ -24,7 +24,6 @@ function runGame() {
     *   the start button on-click action
     */
     function startPanelEventListener(event) {
-<<<<<<< HEAD
 		if (eventListener(0.8, 0.5, 0.1, 0.6, event.offsetX, event.offsetY)) {
             secondBoxNum;
             firstBoxNum = Math.floor(Math.random() * 2 + 1);
@@ -32,7 +31,8 @@ function runGame() {
                 secondBoxNum = 1;
             } else {
                 secondBoxNum = 2;
-=======
+            }
+        }
 		// player name
         if (eventListener(0.45, 0.5, 0.1, 1, event.offsetX, event.offsetY)) {
             drawKeyboardPanel();
@@ -45,7 +45,6 @@ function runGame() {
             // generate boxes to be displayed
             for (var i = 0; i < level; i++) {
                 answerArray.push(randomBoxGenerator(1));
->>>>>>> origin/master
             }
             // generate boxes to be displayed
             answerArray.push(randomBoxGenerator(firstBoxNum));
@@ -142,14 +141,10 @@ function runGame() {
     *
     */
     function endPanelEventListener(event) {
-<<<<<<< HEAD
-		// restar
-=======
 		// post highscore to database
 		postHighscore(playerName, currentScore);
 		
 		// restart
->>>>>>> origin/master
         if (eventListener(0.7, 0.5, 0.1, 0.6, event.offsetX, event.offsetY)) {
             secondBoxNum;
             firstBoxNum = Math.floor(Math.random() * 2 + 1);
