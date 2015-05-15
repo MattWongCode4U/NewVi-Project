@@ -9,21 +9,7 @@ r = new XMLHttpRequest();
 
 r.open("GET", "https://api.mongolab.com/api/1/databases/newvi/collections/leaderboards?s={%22highscore%22:-1}&l=5&apiKey=yXsXCeqDNLQW5jM2X6kHO9RzosAJ2QWO", true);
 alert("even before everything");
-if(r.readyState == 0){
-	alert("ready state = 0");
-}
-if(r.readyState == 1){
-	alert("ready state = 1");
-}
-if(r.readyState == 2){
-	alert("ready state = 2");
-}
-if(r.readyState == 3){
-	alert("ready state = 3");
-}
-if(r.readyState ==4){
-	alert("ready state = 4");
-}
+
 r.onreadystatechange=function(){
 alert("before");
 if(r.readyState == 4){
