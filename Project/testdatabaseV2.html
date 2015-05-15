@@ -8,6 +8,11 @@
 r = new XMLHttpRequest();
 
 r.open("GET", "https://api.mongolab.com/api/1/databases/newvi/collections/leaderboards?s={%22highscore%22:-1}&l=5&apiKey=yXsXCeqDNLQW5jM2X6kHO9RzosAJ2QWO", true);
+<<<<<<< HEAD
+alert("even before everything");
+
+=======
+>>>>>>> acd3fa120ac5d3134284e789a559b12b85f50b1d
 r.onreadystatechange=function(){
 if(r.readyState == 4){
 	var string = JSON.parse(r.responseText);
