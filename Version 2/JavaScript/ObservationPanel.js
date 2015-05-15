@@ -43,9 +43,9 @@ function drawCircleTimer() {
     var width = canvas.width;
     ctx.lineWidth = 8;
     ctx.strokeStyle = "#528f20";
-    
+
     ctx.beginPath();
-    var startAngle = 0; 
+    var startAngle = 0;
     var time = 0;
     var intv = setInterval(function(){
     ctx.clearRect(width / 60, width / 60, width * 0.2, width * 0.2);
@@ -53,14 +53,14 @@ function drawCircleTimer() {
     ctx.save();
     ctx.translate(-(width / 60), width * 0.25);
     ctx.rotate(270 * Math.PI / 180);
-    ctx.arc(width * 2/15, width * 2/15, width / 12, startAngle , endAngle, false);   
+    ctx.arc(width * 2/15, width * 2/15, width / 12, startAngle , endAngle, false);
     startAngle = endAngle;
     ctx.stroke();
     ctx.restore();
-        
+
     countdown--;
-        
-    if (++time > sec,countdown == 0 ) { clearInterval(intv);}                               
-    }, 10);   
-    ctx.closePath(); 
+
+    if (++time > sec,countdown == 0 ) { clearInterval(intv);}
+    }, 10);
+    ctx.closePath();
 }
