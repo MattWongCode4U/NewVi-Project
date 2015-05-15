@@ -203,48 +203,7 @@ function runGame() {
 	function keyboardPanelEventListener(event) {
         var text = drawTextInput("");
 		clearInterval(text);
-        
-		if (eventListener(0.55, 0.05, 0.045, 0.09, event.offsetX, event.offsetY)) {
-            playerName = playerName + "1";
-            text = drawTextInput(playerName);
-        }
-		else if (eventListener(0.55, 0.15, 0.045, 0.09, event.offsetX, event.offsetY)) {
-            playerName = playerName + "2";
-            text = drawTextInput(playerName);
-        }
-		else if (eventListener(0.55, 0.25, 0.045, 0.09, event.offsetX, event.offsetY)) {
-            playerName = playerName + "3";
-            text = drawTextInput(playerName);
-        }
-		else if (eventListener(0.55, 0.35, 0.045, 0.09, event.offsetX, event.offsetY)) {
-            playerName = playerName + "4";
-            text = drawTextInput(playerName);
-        }
-		else if (eventListener(0.55, 0.45, 0.045, 0.09, event.offsetX, event.offsetY)) {
-            playerName = playerName + "5";
-            text = drawTextInput(playerName);
-        }
-		else if (eventListener(0.55, 0.55, 0.045, 0.09, event.offsetX, event.offsetY)) {
-            playerName = playerName + "6";
-            text = drawTextInput(playerName);
-        }
-		else if (eventListener(0.55, 0.65, 0.045, 0.09, event.offsetX, event.offsetY)) {
-            playerName = playerName + "7";
-            text = drawTextInput(playerName);
-        }
-		else if (eventListener(0.55, 0.75, 0.045, 0.09, event.offsetX, event.offsetY)) {
-            playerName = playerName + "8";
-            text = drawTextInput(playerName);
-        }
-		else if (eventListener(0.55, 0.85, 0.045, 0.09, event.offsetX, event.offsetY)) {
-            playerName = playerName + "9";
-            text = drawTextInput(playerName);
-        }
-		else if (eventListener(0.55, 0.95, 0.045, 0.09, event.offsetX, event.offsetY)) {
-            playerName = playerName + "0";
-            text = drawTextInput(playerName);
-        }
-		else if (eventListener(0.65, 0.05, 0.045, 0.09, event.offsetX, event.offsetY)) {
+        if (eventListener(0.65, 0.05, 0.045, 0.09, event.offsetX, event.offsetY)) {
             playerName = playerName + "Q";
             text = drawTextInput(playerName);
         }
@@ -354,15 +313,8 @@ function runGame() {
 			canvas.removeEventListener('click', keyboardPanelEventListener);
 			canvas.addEventListener('click', startPanelEventListener);
 		}
-		// space
 		else if (eventListener(0.95, 0.5, 0.045, 0.99, event.offsetX, event.offsetY)) {
 			playerName = playerName + " ";
-			text = drawTextInput(playerName);
-		}
-		else if (eventListener(0.75, 0.95, 0.045, 0.09, event.offsetX, event.offsetY)) {
-			if(playerName.length >= 1){
-				playerName = playerName.substring(0, playerName.length - 1);
-			}
 			text = drawTextInput(playerName);
 		}
 		else {
