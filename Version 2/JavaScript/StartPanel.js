@@ -2,14 +2,16 @@
 *   draw the start panel and add its action listeners
 *   @param highScore highest score on this machine
 */
-function drawStartPanel(highScore) {
+function drawStartPanel(playerName) {
     clearCanvas();
     drawTitle();
     drawHighScoreButton();
     drawStartButton();
-	  //drawMuteSoundButton();
-    drawHeartLives();
-    drawScore();
+	  drawMuteSoundButton();
+	drawPlayerName(playerName);
+
+	  drawMuteSoundButton();
+
 }
 /*
 *   draw the title
@@ -80,3 +82,6 @@ function toggleSound() {
     }
 }
 
+function drawPlayerName(playerName) {
+    drawText(0.45, 0.5, 0.08, "black", playerName);
+}

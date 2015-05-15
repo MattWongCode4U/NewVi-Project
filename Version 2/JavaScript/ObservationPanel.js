@@ -9,6 +9,7 @@ function drawObservationPanel(slideNumber, boxOne, boxTwo) {
     drawSlideNumber(slideNumber);
     drawBoxOne(boxOne);
     drawBoxTwo(boxTwo);
+    drawCircleTimer();
 }
 /*
 *   draw the slide number
@@ -32,4 +33,34 @@ function drawBoxOne(boxOne) {
 function drawBoxTwo(boxTwo) {
     drawText(0.4, 0.75, 0.05, "black", "Box 2");
     drawButton(0.7, 0.75, 0.2, boxTwo.fontColour, boxTwo.text, boxTwo.boxColour, 0.4)
+}
+
+function drawCircleTimer() {
+    var canvas  = document.getElementById('game');
+    var ctx = canvas.getContext("2d");
+    var sec = 240;
+    var countdown = sec;
+    var width = canvas.width;
+    ctx.lineWidth = 8;
+    ctx.strokeStyle = "#528f20";
+    
+    ctx.beginPath();
+    var startAngle = 0; 
+    var time = 0;
+    var intv = setInterval(function(){
+    ctx.clearRect(width / 60, width / 60, width * 0.2, width * 0.2);
+    var endAngle = (Math.PI * time * 2 / sec);
+    ctx.save();
+    ctx.translate(-(width / 60), width * 0.25);
+    ctx.rotate(270 * Math.PI / 180);
+    ctx.arc(width * 2/15, width * 2/15, width / 12, startAngle , endAngle, false);   
+    startAngle = endAngle;
+    ctx.stroke();
+    ctx.restore();
+        
+    countdown--;
+        
+    if (++time > sec,countdown == 0 ) { clearInterval(intv);}                               
+    }, 10);   
+    ctx.closePath(); 
 }

@@ -1,5 +1,5 @@
 function drawKeyboardPanel() {
-    drawTextInput("test");
+    clearCanvas();
     drawNumberRow();
     drawFirstRow();
     drawSecondRow();

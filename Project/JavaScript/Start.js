@@ -138,7 +138,7 @@ function drawCircleTimer() {
     var canvas  = document.getElementById('game');
     var seconds = document.getElementById('counter');
     var ctx = canvas.getContext("2d");
-    var sec = 300;
+    var sec = 180;
     var countdown = sec;
     var width = canvas.width;
 
@@ -158,10 +158,6 @@ function drawCircleTimer() {
     startAngle = endAngle;
     ctx.stroke();
     ctx.restore();
-
-    document.getElementById('counter').style.zIndex = "1";
-    document.getElementById('counter').style.display = "block";
-
         
     countdown--;
     if ( countdown > 60){
