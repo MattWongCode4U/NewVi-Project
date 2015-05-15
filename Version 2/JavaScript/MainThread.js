@@ -13,7 +13,7 @@ function runGame() {
     var level = 1;
     var answerArray = [];
     var answerTile;
-    var life;
+    var life = 3;
 	var playerName = "Player";
     
     drawStartPanel(playerName);
@@ -125,16 +125,31 @@ function runGame() {
                 currentScore += 200;
             } else {
                 playAudio('fail');
+                life -= 1;
+            } 
+            if(life != 0) {
+            firstBoxNum = Math.floor(Math.random() * 2 + 1);
+            var newBox = randomBoxGenerator(firstBoxNum);
+            answerArray[0] = newBox;
+            if(firstBoxNum == 2) {
+                secondBoxNum = 1;
+                drawObservationPanel(currentSlide, randomBoxGenerator(secondBoxNum), answerArray[0]);
+            } else if(firstBoxNum == 1) {
+                secondBoxNum = 2;
+                drawObservationPanel(currentSlide, answerArray[0], randomBoxGenerator(secondBoxNum));
             }
+            observationPanelEventListener(newBox);
+        } else {
             drawEndPanel(currentScore, highScore);
             canvas.addEventListener('click', endPanelEventListener);
-        } 
+        }} 
     } 
     /*
     *
     */
     function endPanelEventListener(event) {
 		// post highscore to database
+        life = 3;
 		postHighscore(playerName, currentScore);
 		
 		// restart
