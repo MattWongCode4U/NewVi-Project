@@ -122,27 +122,25 @@ function runGame() {
         } 
         if (clicked == true) {
             if (correct == true) {
-<<<<<<< HEAD
                 playAudio('success');
                 currentScore += 100;
-=======
-                audio.pause();
+                /*audio.pause();
                 if(audio.paused) { 
                    playAudio('success');
                     setTimeout(function() {
                         audio.play();
                     }, 3000);
-                }
+                } */
                 currentScore += 200;
->>>>>>> origin/master
             } else {
+                /*
                 audio.pause();
                 if(audio.paused) {
                     playAudio('fail');
                     setTimeout(function() {
                         audio.play();
                     }, 4000);
-                }                
+                } */               
                 life -= 1;
             } 
             if(life != 0) {
