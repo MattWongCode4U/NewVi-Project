@@ -76,7 +76,7 @@ function runGame() {
     function observationPanelEventListener(answer) {
         answerTile = Math.floor((Math.random() * 4) + 1);
         setTimeout(function() {
-            drawAnswerPanel(currentSlide, answer, answerTile, currentScore);
+            drawAnswerPanel(currentSlide, answer, answerTile, currentScore, life);
             canvas.addEventListener('click', answerPanelEventListener);
         }, 3000);
     }
@@ -122,7 +122,7 @@ function runGame() {
         if (clicked == true) {
             if (correct == true) {
                 playAudio('success');
-                currentScore += 200;
+                currentScore += 100;
             } else {
                 playAudio('fail');
                 life -= 1;

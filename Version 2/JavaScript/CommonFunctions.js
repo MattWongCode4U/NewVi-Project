@@ -135,19 +135,18 @@ function randomBoxGenerator(boxNumber) {
     return random;
 }
 
-function drawHeartLives() {
+function drawHeartLives(life) {
     var canvas = document.getElementById('game');
     var ctx = canvas.getContext('2d');
     var width = canvas.width;
     var image = new Image();
-    var text = ": ";
-  
-    ctx.fillStyle = "black";
-    ctx.font = "bold " + width * 7 / 120 + "px Arial";
-    ctx.fillText(text, width * 2 / 15, width * 0.075);
+    var x = width / 60;
     
     image.onload = function() {
-        ctx.drawImage(image, width / 60, width / 60, width * 0.1, width * 0.1);
+        for(var i = 0; i < life; i++) {
+            ctx.drawImage(image, x, width / 60, width * 0.1, width * 0.1);
+            x += width * 0.1 + 5;
+        }
     };
     image.src = "Images/heart3.png";
 }

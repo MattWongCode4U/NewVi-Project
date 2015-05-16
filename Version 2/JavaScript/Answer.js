@@ -1,4 +1,4 @@
-function drawAnswerPanel(slideNum, answer_, answerTile, score) {
+function drawAnswerPanel(slideNum, answer_, answerTile, score, life) {
   var answer = document.getElementById("game");
           var ctx = answer.getContext("2d");
           clearCanvas();
@@ -305,17 +305,12 @@ function drawAnswerPanel(slideNum, answer_, answerTile, score) {
           if (question != 0) {
               printBackground();
           }
-          //drawHeartLives();
-          //drawScore(score);
           tile1(answerTile, question);
           tile2(answerTile, question);
           tile3(answerTile, question);
           tile4(answerTile, question);
-          colors = ["rgb(255,0,0)","rgb(0,255,0)","rgb(0,0,255)","rgb(0,0,0)","rgb(255,255,0)"
-                ,"rgb(255,0,255)","rgb(0,255,255)","rgb(255,137,0)","rgb(108,50,0)"];
-          numColors = ["rgb(255,0,0)","rgb(0,255,0)","rgb(0,0,255)","rgb(0,0,0)","rgb(255,255,0)"
-                ,"rgb(255,0,255)","rgb(0,255,255)","rgb(255,137,0)","rgb(108,50,0)"];
-          numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+          drawHeartLives(life);
+          drawScore(score);
       }
 
       draw(slideNum, answer, answerTile, score);
