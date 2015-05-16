@@ -131,6 +131,7 @@ function runGame() {
                 }
                 currentScore += 200;
             } else {
+<<<<<<< HEAD
                 audio.pause();
                 if(audio.paused) {
                     playAudio('fail');
@@ -138,6 +139,8 @@ function runGame() {
                         audio.play();
                     }, 4000);
                 }                
+=======
+                playAudio('fail');
                 life -= 1;
             } 
             if(life != 0) {
@@ -150,6 +153,7 @@ function runGame() {
             } else if(firstBoxNum == 1) {
                 secondBoxNum = 2;
                 drawObservationPanel(currentSlide, answerArray[0], randomBoxGenerator(secondBoxNum));
+>>>>>>> origin/master
             }
             observationPanelEventListener(newBox);
         } else {
