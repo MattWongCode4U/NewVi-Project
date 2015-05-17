@@ -68,6 +68,7 @@ function toggleSound() {
     var canvas = document.getElementById("game");
     var ctx = canvas.getContext("2d");
     var width = canvas.width;
+    audio.volume = 0.5;
 
     if(audio.paused) {
 		  audio.play();

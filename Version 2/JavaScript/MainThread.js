@@ -124,6 +124,7 @@ function runGame() {
             if (correct == true) {
                 playAudio('success');
                 currentScore += 100;
+                audio.volume = 0.5;
                 /*audio.pause();
                 if(audio.paused) { 
                    playAudio('success');
@@ -133,6 +134,7 @@ function runGame() {
                 } */
                 currentScore += 200;
             } else {
+                audio.volume = 0.5;
                 /*
                 audio.pause();
                 if(audio.paused) {
