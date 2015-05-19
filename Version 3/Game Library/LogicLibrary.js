@@ -51,7 +51,7 @@ function randomNumberGenerator(){
 function randomColourGenerator(max){
     // red, green, blue, black, yellow, purple, cyan, orange, brown
     var colours = ["#CC2237","#80FF00","#00AAFF","#000000","rgb(255,255,0)"
-                ,"rgb(255,0,255)","#00FFAA","rgb(255,137,0)","rgb(108,50,0)"];
+                ,"#F0B0C1","#00FFAA","rgb(255,137,0)","rgb(108,50,0)"];
 
     // check if max exceeded the number of colours
     if (max <= colours.length)

@@ -105,7 +105,7 @@ function drawImage(xRatio, yRatio, widthRatio, heightRatio, src) {
 *   @param {lifePoint}  life point remained
 */
 function drawLifePoint(lifePoint) {
-    for (var i = 0; i < lifePoint + 1; i++) {
+    for (var i = 0; i < lifePoint; i++) {
         drawImage(0.05 + 0.05 * i, 0.05, 0.05, 0.05, 'Images/Heart.gif');
     }
 }
