@@ -34,6 +34,7 @@ function postAchievement(pName, achievement1, achievement2, achievement3) {
 *	@param {pName}	player name that is being searched for
 */
 function searchAchievementTable(pName) {
+	var found = false;
 	r = new XMLHttpRequest();
 	r.open("GET", "https://api.mongolab.com/api/1/databases/newvi/collections/achievements?&apiKey=yXsXCeqDNLQW5jM2X6kHO9RzosAJ2QWO", true);
 	r.onreadystatechange=function(){
@@ -44,9 +45,12 @@ function searchAchievementTable(pName) {
 			for(i = 0; i < obj.length; i++){
 				if(obj[i].name == pName){
 					drawText(0.3, 0.5, 0.06, pName + "Achievement1: " + obj[i].achievement1 + "Achievement2: " + obj[i].achievement2 + "Achievement3" + obj[i].achievement3, "black");
+					found = true;
 				}
 			}
-			
+			if(found == false){
+				alert("Could not find " + pName);
+			}
 		};
 	}
 	r.send(null);
