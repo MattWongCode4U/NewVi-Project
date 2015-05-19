@@ -39,9 +39,17 @@ function runGame() {
         if (currentSlide >= level) {
             // reset current slide, answerArray, spotArray and increase level
             currentSlide = 1;
-            level++; 
+            level++;
             answerArray = [];
             spotArray = [];
+			// achievement 2: reach level 10
+			if(level >= 10){
+				achievement2 = true;
+			}
+			//achievement 3: no lives lost and reached level 10
+			if(level >= 10 && lifePoint == 3){
+				achievement3 = true;
+			}
             // generates new answers and spots
             for (var i = 0; i < level; i++) {
                 answerArray.push(randomBoxGenerator());
@@ -289,6 +297,7 @@ function runGame() {
                 playAudio('success');
                 score = score + level * 100;
                 correct = true;
+				// achievement 1: correct streak of 5 in a row
 				++streakCount;
 				if(streakCount >= 5){
 					achievement1 = true;
@@ -325,7 +334,8 @@ function runGame() {
         canvas.removeEventListener('click', endPanelEventListener);
         // post player's name and score onto the database
         postHighscore(playerName, score);
-        
+        postAchievement(playerName, achievement1, achievement2, achievement3);
+		
         // reset player information
         score = 0;
         lifePoint = 3;
