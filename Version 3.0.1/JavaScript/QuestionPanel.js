@@ -11,9 +11,9 @@ function drawQuestionPanel(currentSlide, box, correct) {
     
     // draw background
     if (correct)
-        ctx.fillStyle = "#80FF00";
+        ctx.fillStyle = "green";
     else
-        ctx.fillStyle = "#CC2237";
+        ctx.fillStyle = "red";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     
     // draw question
