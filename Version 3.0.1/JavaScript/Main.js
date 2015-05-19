@@ -289,6 +289,10 @@ function runGame() {
                 playAudio('success');
                 score = score + level * 100;
                 correct = true;
+				++streakCount;
+				if(streakCount >= 5){
+					achievement1 = true;
+				}
                 nextQuestion();
             }
             // if the answer is not correct
@@ -296,6 +300,7 @@ function runGame() {
                 playAudio('fail');
                 correct = false;
                 lifePoint--;
+				streakCount = 0;
                 // life remain is less than zero
                 if (lifePoint <= 0) {
                     // reset game information
