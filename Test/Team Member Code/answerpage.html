@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+    <!-- This is the answer page panel -->
+<head>
+  <title>Test responsive canvas</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+  <script>
+    // Canvas constructor
+    function answerFrame() {
+      // Constructing canvas
+      var answer = document.getElementById("answerPanel");
+      var ctx = answer.getContext("2d");
+      // width and height of the canvas
+      var w = answer.width;
+      var h = answer.height;
+      // Array of all possible color values used in this game
+      var colors = ["red", "yellow", "blue", "black", "purple", "brown", "cyan", "orange"];
+<<<<<<< HEAD
+      // Padding used to adjust position
+      var pad = 20;
+      //The object to be used to test the user, either 1 or 2
+=======
+      // Padding used to adjust position 
+      var pad = w/12;
+      //The object to be used to test the user, either 1 or 2 
+>>>>>>> 03a9dbb8914b502257987c46a81032b0a4f8c1a6
+      var tag = "Box 1";
+      // The question Number to test the user in one round
+      var slide = "Slide 1";
+      // The correct answers Number value
+      var numChoice = 1;
+      // The correct answers color value
+      var colorChoice = "red";
+      // The font color from the struct;
+      var fontColorChoice;
+      var fontsize = w/3;
+      // Setting up fond information and begin the drawing
+      ctx.beginPath();
+      ctx.font = "bold "+ fontsize + "px Aerial ";
+      ctx.textBaseline = "bottom";
+
+      /**
+      * prints the number within the a tile
+      * @param w The width of the canvas
+      * @param h The height of the canvas
+      */
+      function printNum(w, h) {
+        ctx.closePath();
+        ctx.beginPath();
+        ctx.fillStyle = "white";
+        ctx.fillText(numChoice, w, h);
+      }
+
+      /**
+      * Get a random number range from 0 to the max index of colors array
+      */
+      function getRandom() {
+        return Math.floor(Math.random() * (colors.length - 1));
+      }
+
+      /**
+      * Get the correct answers location within the color array
+      */
+      function getAnswerIndex() {
+        for(var i = 0; i < colors.length; i++) {
+          if(colors[i] == colorChoice) {
+            return i;
+          }
+        }
+      }
+
+      /**
+      * Paint the tile with a random color and remove the color from the array
+      * @param answer If this tile contains the correct answer
+      */
+      function paint(x, y, w, h, answer) {
+        // Receive the random color value
+        var randomVal = getRandom();
+        ctx.closePath();
+        ctx.beginPath();
+        //If this is the tile for the right answer, paint the color of choice(red in this case)
+        if (answer == 1) {
+          printNum("dududu",x,y);
+          ctx.fillStyle = "red";
+          ctx.fillRect(x, y, w, h);
+          //Get the red's location within the array and remove it.
+          colors.splice(getAnswerIndex(), 1);
+        } else if(answer == 0) {
+          // Else find a random color value and paint the tile
+          while (colors[randomVal] == colorChoice) {
+            randomVal = getRandom();
+          }
+          ctx.fillStyle = colors[randomVal];
+          ctx.fillRect(x, y, w, h);
+          colors.splice(randomVal, 1);
+        }
+      }
+
+      /**
+      * Prints the tag and slide
+      */
+      function showFillText() {
+        ctx.fillText(tag, w / 2 - pad, h / 8);
+        ctx.fillText(slide, w / 2 - pad, h / 5);
+      }
+
+      /**
+      * Paints the tile and a number,
+      * if the tile is the correct one, pass 1 to paint function
+      */
+      function tile1(answerTile) {
+<<<<<<< HEAD
+        if (answerTile == 9) {
+          paint((w / 2), (h / 2 + pad), w / 3, h / 3, 1);
+=======
+        if (answerTile == 1) {
+          paint(w / 2 - w / 3, h / 2 - h / 3 + pad, w / 3, h / 3, 1);
+>>>>>>> 03a9dbb8914b502257987c46a81032b0a4f8c1a6
+        } else {
+          paint(w / 2 - w / 3, h / 2 - h / 3 + pad, w / 3, h / 3, 0);
+        }
+        printNum(w / 3 - w/15, h/2 - h/3 + pad + h/3);
+      }
+
+      function tile2(answerTile) {
+<<<<<<< HEAD
+        if (answerTile == 7) {
+          paint((w / 2), (h / 2 + pad), w / 3, h / 3, 1);
+=======
+        if (answerTile == 2) {
+          paint((w / 2), (h / 2 - h / 3 + pad), w / 3, h / 3, 1);
+>>>>>>> 03a9dbb8914b502257987c46a81032b0a4f8c1a6
+        } else {
+          paint((w / 2), (h / 2 - h / 3 + pad), w / 3, h / 3, 0);
+        }
+        printNum();
+      }
+
+      function tile3(answerTile) {
+<<<<<<< HEAD
+        if (answerTile == 10) {
+          paint((w / 2), (h / 2 + pad), w / 3, h / 3, 1);
+=======
+        if (answerTile == 3) {
+          paint((w / 2 - w / 3), (h / 2 + pad), w / 3, h / 3, 1);
+>>>>>>> 03a9dbb8914b502257987c46a81032b0a4f8c1a6
+        } else {
+          paint((w / 2 - w / 3), (h / 2 + pad), w / 3, h / 3, 0);
+        }
+        printNum(w/2 - w/3 + w/6, h / 2 + h/5 + pad);
+      }
+
+      function tile4(answerTile) {
+<<<<<<< HEAD
+        if (answerTile == 1) {
+=======
+        if (answerTile == 4) {
+>>>>>>> 03a9dbb8914b502257987c46a81032b0a4f8c1a6
+          paint((w / 2), (h / 2 + pad), w / 3, h / 3, 1);
+        } else {
+          paint((w / 2), (h / 2 + pad), w / 3, h / 3, 0);
+        }
+        printNum(w / 2 + w/6, h/2 + pad + h/5);
+      }
+
+      /**
+      * Construct everything, assign the correct answer tile
+      * Reset color array after everything finished constructing
+      */
+      function drawAnswerPanel(answer,slideNum,score) {
+        var question = Math.floor((Math.random() *2));
+        var answerTile = Math.floor((Math.random() * 4) + 1);
+        showFillText();
+        tile1(answerTile);
+        tile2(answerTile);
+        tile3(answerTile);
+        tile4(answerTile);
+        var colors = ["red", "yellow", "blue", "black", "purple", "brown", "cyan", "orange"];
+      }
+
+      drawAnswerPanel();
+
+      /**
+      * Frame for testing
+      */
+      ctx.rect(0, 0, w, h);
+      ctx.stroke();
+      ctx.closePath();
+    }
+  </script>
+</head>
+
+<body onLoad="answerFrame()">
+  <div class="container">
+    <div class="col-lg-12 col-md-12 col-sm-12 text-center">
+      <canvas id="answerPanel" width="500" height="500"></canvas>
+    </div>
+  </div>
+</body>
+
+</html>
