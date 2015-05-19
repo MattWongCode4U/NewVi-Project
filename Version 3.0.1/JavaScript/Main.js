@@ -24,6 +24,7 @@ function runGame() {
 	var achievement1 = false;
 	var achievement2 = false;
 	var achievement3 = false;
+	var streakCount = 0;
     
     // draw panels
     drawStartPanel(playerName);
