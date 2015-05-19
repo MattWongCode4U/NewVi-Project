@@ -50,14 +50,14 @@ function randomNumberGenerator(){
 */
 function randomColourGenerator(max){
     // red, green, blue, black, yellow, purple, cyan, orange, brown
-    var colours = ["rgb(255,0,0)","rgb(0,255,0)","rgb(0,0,255)","rgb(0,0,0)","rgb(255,255,0)"
-                ,"rgb(255,0,255)","rgb(0,255,255)","rgb(255,137,0)","rgb(108,50,0)"];
+    var colours = ["#CC2237","#80FF00","#00AAFF","#000000","rgb(255,255,0)"
+                ,"rgb(255,0,255)","#00FFAA","rgb(255,137,0)","rgb(108,50,0)"];
 
     // check if max exceeded the number of colours
     if (max <= colours.length)
         return colours[Math.floor(Math.random() * (max))];
     else
-        return colours[Math.floor(Math.random() * (colour.length))];
+        return colours[Math.floor(Math.random() * (colours.length))];
 }
 /**
 *   generates random box information and return it.

@@ -283,7 +283,7 @@ function runGame() {
                 correct = false;
                 lifePoint--;
                 // life remain is less than zero
-                if (lifePoint < 0) {
+                if (lifePoint <= 0) {
                     // reset game information
                     level = 1;
                     currentSlide = 1;
