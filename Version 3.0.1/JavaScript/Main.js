@@ -19,6 +19,11 @@ function runGame() {
     var currentSlide = 1;
     var answerArray = [];
     var spotArray = [];
+	
+	// variables - achievements
+	var achievement1 = false;
+	var achievement2 = false;
+	var achievement3 = false;
     
     // draw panels
     drawStartPanel(playerName);
