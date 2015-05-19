@@ -71,7 +71,7 @@ function drawButton(xRatio, yRatio, widthRatio, heightRatio, text, textColour, b
     ctx.fillStyle = buttonColour;
     ctx.fillRect((xRatio - widthRatio / 2) * width, yRatio * height, widthRatio * width, heightRatio * height);
     ctx.fillStyle = "black";
-    ctx.lineWidth = 3;//(widthRatio + heightRatio) * (width + height) / 160;
+    ctx.lineWidth = 1.5;//(widthRatio + heightRatio) * (width + height) / 160;
     ctx.strokeRect((xRatio - widthRatio / 2) * width, yRatio * height, widthRatio * width, heightRatio * height);
     
     // draw text on the button
@@ -104,7 +104,7 @@ function drawImage(xRatio, yRatio, widthRatio, heightRatio, src) {
 *   @param {lifePoint}  life point remained
 */
 function drawLifePoint(lifePoint) {
-    for (var i = 0; i < lifePoint + 1; i++) {
+    for (var i = 0; i < lifePoint; i++) {
         drawImage(0.05 + 0.05 * i, 0.05, 0.05, 0.05, 'Images/Heart.gif');
     }
 }
