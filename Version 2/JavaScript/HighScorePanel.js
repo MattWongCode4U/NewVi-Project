@@ -32,6 +32,5 @@ function drawHighScoreBoard() {
 			}
 		};
 	}
-	r.send(null);
-	
+	r.send(null);	
 }

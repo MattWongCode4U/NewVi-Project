@@ -148,7 +148,7 @@ function drawHeartLives(life) {
             x += width * 0.1 + 5;
         }
     };
-    image.src = "Images/heart3.png";
+    image.src = "Images/Heart.png";
 }
 
 function drawScore(score) {

@@ -224,7 +224,7 @@ function runGame() {
 	*/
 	function keyboardPanelEventListener(event) {
         var text = drawTextInput("");
-		clearInterval(text);
+		//clearInterval(text);
         if (eventListener(0.65, 0.05, 0.045, 0.09, event.offsetX, event.offsetY)) {
             playerName = playerName + "Q";
             text = drawTextInput(playerName);
