@@ -59,7 +59,7 @@ function drawText(xRatio, yRatio, heightRatio, text, textColour) {
 *   @param {text}           text on the button
 *   @param {textColour}     colour of the text
 *   @param {buttonColour}   colour of the button
-*/ 
+*/
 function drawButton(xRatio, yRatio, widthRatio, heightRatio, text, textColour, buttonColour) {
     // variables 
     var canvas = document.getElementById('game');
@@ -71,12 +71,13 @@ function drawButton(xRatio, yRatio, widthRatio, heightRatio, text, textColour, b
     ctx.fillStyle = buttonColour;
     ctx.fillRect((xRatio - widthRatio / 2) * width, yRatio * height, widthRatio * width, heightRatio * height);
     ctx.fillStyle = "black";
-    ctx.lineWidth = 3;//(widthRatio + heightRatio) * (width + height) / 160;
+    ctx.lineWidth = 1.5;//(widthRatio + heightRatio) * (width + height) / 160;
     ctx.strokeRect((xRatio - widthRatio / 2) * width, yRatio * height, widthRatio * width, heightRatio * height);
     
     // draw text on the button
     drawText(xRatio, yRatio, heightRatio * 0.7, text, textColour);
 }
+
 /**
 *   Paint an image on the "game" canvas.
 *   @param {xRatio}         x position of the image based on the canvas size (0 - 1)
