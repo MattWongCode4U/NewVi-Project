@@ -36,7 +36,7 @@ function drawLevelPanel(level, correct) {
         }
         else if (level == 2) {
             drawText(0.5, 0.5, 0.05, 'Hint: Remember the boxes', 'white');
-            drawText(0.5, 0.6, 0.05, 'displayed in a serie', 'white');
+            drawText(0.5, 0.6, 0.05, 'displayed in a series', 'white');
         }
         else {
             drawText(0.5, 0.5, 0.05, 'Hint: Try reading out the boxes', 'white');

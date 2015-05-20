@@ -112,11 +112,27 @@ function runGame() {
             // display level panels
             drawLevelPanel(level, correct);
             levelPanelEventListener();
-        }
+        } 
+            else if(eventListener(0.1, 0, 0.2, 0.2, event.offsetX, event.offsetY)) {
+                    drawAchivement(playerName);
+                    canvas.addEventListener('click', AchivementPanelEventListener);
+                }
         else {
             canvas.addEventListener('click', startPanelEventListener);
         }
     }
+
+    /*
+        * Achivement panel event listener
+        */
+        function AchivementPanelEventListener(event) {
+            if (eventListener(0.5, 0.75, 0.8, 0.15, event.offsetX, event.offsetY)) {
+                clearCanvas();
+                drawStartPanel(playerName);
+                canvas.addEventListener('click', startPanelEventListener);
+            }
+        }
+        
     /**
     *   keyboard panel event listener
     *   @param {event}  event occurred
