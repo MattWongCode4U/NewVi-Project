@@ -10,7 +10,7 @@ function drawLevelPanel(level, correct) {
     
     // draw background
     if (correct)
-        ctx.fillStyle = 'green';
+        ctx.fillStyle = "#80FF00";
     else
         ctx.fillStyle = 'red';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
