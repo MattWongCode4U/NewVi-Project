@@ -113,10 +113,10 @@ function runGame() {
             drawLevelPanel(level, correct);
             levelPanelEventListener();
         } 
-            else if(eventListener(0.1, 0, 0.2, 0.2, event.offsetX, event.offsetY)) {
-                    drawAchivement(playerName);
-                    canvas.addEventListener('click', AchivementPanelEventListener);
-                }
+        else if(eventListener(0.1, 0, 0.2, 0.2, event.offsetX, event.offsetY)) {
+            drawAchievement(playerName);
+            canvas.addEventListener('click', AchivementPanelEventListener);
+        }
         else {
             canvas.addEventListener('click', startPanelEventListener);
         }
