@@ -75,13 +75,78 @@ function achievementToDatabase(pName, achievement1, achievement2, achievement3) 
 			for(i = 0; i < obj.length; i++){
 				// if the record is found, change the record
 				if(obj[i].name == pName){
-					$.ajax({
-						url: "https://api.mongolab.com/api/1/databases/newvi/collections/achievements?apiKey=yXsXCeqDNLQW5jM2X6kHO9RzosAJ2QWO",
-						data: JSON.stringify( { "name" : pName, "achievement1" : achievement1, "achievement2": achievement2, "achievement3": achievement3}),
-						type: "PUT",
-						contentType: "application/json"
-			
-					});
+					if(achievement1 == true && achievement2 == true && achievement3 == true) {
+						$.ajax({
+							url: "https://api.mongolab.com/api/1/databases/newvi/collections/achievements?apiKey=yXsXCeqDNLQW5jM2X6kHO9RzosAJ2QWO",
+							data: JSON.stringify( { "name" : pName, "achievement1" : achievement1, "achievement2": achievement2, "achievement3": achievement3}),
+							type: "PUT",
+							contentType: "application/json"
+				
+						});
+					}
+					if(achievement1 == true && achievement2 == true && achievement3 == false) {
+						$.ajax({
+							url: "https://api.mongolab.com/api/1/databases/newvi/collections/achievements?apiKey=yXsXCeqDNLQW5jM2X6kHO9RzosAJ2QWO",
+							data: JSON.stringify( { "name" : pName, "achievement1" : achievement1, "achievement2": achievement2, "achievement3": obj[i].achievement3}),
+							type: "PUT",
+							contentType: "application/json"
+				
+						});
+					}
+					if(achievement1 == true && achievement2 == false && achievement3 == true) {
+						$.ajax({
+							url: "https://api.mongolab.com/api/1/databases/newvi/collections/achievements?apiKey=yXsXCeqDNLQW5jM2X6kHO9RzosAJ2QWO",
+							data: JSON.stringify( { "name" : pName, "achievement1" : achievement1, "achievement2": obj[i].achievement2, "achievement3": achievement3}),
+							type: "PUT",
+							contentType: "application/json"
+				
+						});
+					}
+					if(achievement1 == false && achievement2 == true && achievement3 == true) {
+						$.ajax({
+							url: "https://api.mongolab.com/api/1/databases/newvi/collections/achievements?apiKey=yXsXCeqDNLQW5jM2X6kHO9RzosAJ2QWO",
+							data: JSON.stringify( { "name" : pName, "achievement1" : obj[i].achievement1, "achievement2": achievement2, "achievement3": achievement3}),
+							type: "PUT",
+							contentType: "application/json"
+				
+						});
+					}
+					if(achievement1 == false && achievement2 == false && achievement3 == true) {
+						$.ajax({
+							url: "https://api.mongolab.com/api/1/databases/newvi/collections/achievements?apiKey=yXsXCeqDNLQW5jM2X6kHO9RzosAJ2QWO",
+							data: JSON.stringify( { "name" : pName, "achievement1" : obj[i].achievement1, "achievement2": obj[i]achievement2, "achievement3": achievement3}),
+							type: "PUT",
+							contentType: "application/json"
+				
+						});
+					}
+					if(achievement1 == false && achievement2 == true && achievement3 == false) {
+						$.ajax({
+							url: "https://api.mongolab.com/api/1/databases/newvi/collections/achievements?apiKey=yXsXCeqDNLQW5jM2X6kHO9RzosAJ2QWO",
+							data: JSON.stringify( { "name" : pName, "achievement1" : obj[i].achievement1, "achievement2": achievement2, "achievement3": obj[i].achievement3}),
+							type: "PUT",
+							contentType: "application/json"
+				
+						});
+					}
+					if(achievement1 == true && achievement2 == false && achievement3 == false) {
+						$.ajax({
+							url: "https://api.mongolab.com/api/1/databases/newvi/collections/achievements?apiKey=yXsXCeqDNLQW5jM2X6kHO9RzosAJ2QWO",
+							data: JSON.stringify( { "name" : pName, "achievement1" : achievement1, "achievement2": obj[i].achievement2, "achievement3": obj[i].achievement3}),
+							type: "PUT",
+							contentType: "application/json"
+				
+						});
+					}
+					if(achievement1 == false && achievement2 == false && achievement3 == false) {
+						$.ajax({
+							url: "https://api.mongolab.com/api/1/databases/newvi/collections/achievements?apiKey=yXsXCeqDNLQW5jM2X6kHO9RzosAJ2QWO",
+							data: JSON.stringify( { "name" : pName, "achievement1" : obj[i].achievement1, "achievement2": obj[i].achievement2, "achievement3": obj[i].achievement3}),
+							type: "PUT",
+							contentType: "application/json"
+				
+						});
+					}
 					found = true;
 				}
 			}
