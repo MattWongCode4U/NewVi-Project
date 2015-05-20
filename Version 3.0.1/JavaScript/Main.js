@@ -342,12 +342,8 @@ function runGame() {
         canvas.removeEventListener('click', endPanelEventListener);
         // post player's name and score onto the database
         postHighscore(playerName, score);
-<<<<<<< HEAD
         postAchievement(playerName, achievement1, achievement2, achievement3);
-=======
         achievementToDatabase(playerName, achievement1, achievement2, achievement3);
-		
->>>>>>> origin/master
         // reset player information
         score = 0;
         lifePoint = 3;
