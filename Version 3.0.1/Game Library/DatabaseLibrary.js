@@ -114,7 +114,7 @@ function achievementToDatabase(pName, achievement1, achievement2, achievement3) 
 					if(achievement1 == false && achievement2 == false && achievement3 == true) {
 						$.ajax({
 							url: "https://api.mongolab.com/api/1/databases/newvi/collections/achievements?apiKey=yXsXCeqDNLQW5jM2X6kHO9RzosAJ2QWO",
-							data: JSON.stringify( { "name" : pName, "achievement1" : obj[i].achievement1, "achievement2": obj[i]achievement2, "achievement3": achievement3}),
+							data: JSON.stringify( { "name" : pName, "achievement1" : obj[i].achievement1, "achievement2": obj[i].achievement2, "achievement3": achievement3}),
 							type: "PUT",
 							contentType: "application/json"
 				
