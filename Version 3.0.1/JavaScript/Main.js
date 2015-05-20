@@ -22,9 +22,9 @@ function runGame() {
     var spotArray = [];
     
     // variables - achievements
-    var achievement1 = false;
-    var achievement2 = false;
-    var achievement3 = false;
+    var achievement1 = false;	// correct streak
+    var achievement2 = false;	// reach level 10
+    var achievement3 = false;	// reach level 8 without losing a life
     var streakCount = 0;
     // draw panels
     if(window.innerWidth > window.innerHeight) {
@@ -54,8 +54,8 @@ function runGame() {
             if(level >= 10){
                 achievement2 = true;
             }
-            //achievement 3: no lives lost and reached level 10
-            if(level >= 10 && lifePoint == 3){
+            //achievement 3: no lives lost and reached level 8
+            if(level >= 8 && lifePoint == 3){
                 achievement3 = true;
             }
             // generates new answers and spots
@@ -364,6 +364,11 @@ function runGame() {
         score = 0;
         lifePoint = 3;
         correct = true;
+		
+		// reset achievement attributes 
+		achievement1 = false;
+		achievement2 = false;
+		achievement3 = false;
         
         // restart
         if (eventListener(0.5, 0.55, 0.6, 0.15, event.offsetX, event.offsetY)) {
