@@ -5,6 +5,7 @@ function runGame() {
     // variables - canvas
     var canvas = document.getElementById("game");
 	var ctx = canvas.getContext("2d");
+    var canvasSize = window.innerHeight/1.5;
     var width = canvas.width;
     var height = canvas.height;
     
@@ -19,14 +20,21 @@ function runGame() {
     var currentSlide = 1;
     var answerArray = [];
     var spotArray = [];
-	
-	// variables - achievements
-	var achievement1 = false;
-	var achievement2 = false;
-	var achievement3 = false;
-	var streakCount = 0;
     
+    // variables - achievements
+    var achievement1 = false;
+    var achievement2 = false;
+    var achievement3 = false;
+    var streakCount = 0;
     // draw panels
+    if(window.innerWidth > window.innerHeight) {
+        canvasSize = window.innerWidth/1.5;
+    }
+    if(canvasSize > 400) {
+        canvasSize = 400;
+    }
+    document.getElementById("game").width = canvasSize;
+    document.getElementById("game").height = canvasSize;
     drawStartPanel(playerName);
     canvas.addEventListener('click', startPanelEventListener);
     toggleSound();
@@ -39,17 +47,17 @@ function runGame() {
         if (currentSlide >= level) {
             // reset current slide, answerArray, spotArray and increase level
             currentSlide = 1;
-            level++;
+            level++; 
             answerArray = [];
             spotArray = [];
-			// achievement 2: reach level 10
-			if(level >= 10){
-				achievement2 = true;
-			}
-			//achievement 3: no lives lost and reached level 10
-			if(level >= 10 && lifePoint == 3){
-				achievement3 = true;
-			}
+            // achievement 2: reach level 10
+            if(level >= 10){
+                achievement2 = true;
+            }
+            //achievement 3: no lives lost and reached level 10
+            if(level >= 10 && lifePoint == 3){
+                achievement3 = true;
+            }
             // generates new answers and spots
             for (var i = 0; i < level; i++) {
                 answerArray.push(randomBoxGenerator());
@@ -68,7 +76,7 @@ function runGame() {
             setTimeout(function() {
                 drawAnswerPanel(spotArray[currentSlide - 1], answerArray[currentSlide - 1], lifePoint, score);
                 canvas.addEventListener('click', answerPanelEventListener);
-            }, 3000);
+            }, 4000);
         }
     }
     /**
@@ -264,9 +272,9 @@ function runGame() {
                 setTimeout(function() {
                     drawAnswerPanel(spotArray[currentSlide - 1], answerArray[currentSlide - 1], lifePoint, score);
                     canvas.addEventListener('click', answerPanelEventListener);
-                }, 3000);
+                }, 4000);
             }
-        }, 3000);
+        }, 4000);
     }
     /**
     *   answer panel event listener.
@@ -297,11 +305,11 @@ function runGame() {
                 playAudio('success');
                 score = score + level * 100;
                 correct = true;
-				// achievement 1: correct streak of 5 in a row
-				++streakCount;
-				if(streakCount >= 5){
-					achievement1 = true;
-				}
+                // achievement 1: correct streak of 5 in a row
+                ++streakCount;
+                if(streakCount >= 5){
+                    achievement1 = true;
+                }
                 nextQuestion();
             }
             // if the answer is not correct
@@ -309,7 +317,7 @@ function runGame() {
                 playAudio('fail');
                 correct = false;
                 lifePoint--;
-				streakCount = 0;
+                streakCount = 0;
                 // life remain is less than zero
                 if (lifePoint <= 0) {
                     // reset game information
@@ -335,7 +343,6 @@ function runGame() {
         // post player's name and score onto the database
         postHighscore(playerName, score);
         postAchievement(playerName, achievement1, achievement2, achievement3);
-		
         // reset player information
         score = 0;
         lifePoint = 3;
