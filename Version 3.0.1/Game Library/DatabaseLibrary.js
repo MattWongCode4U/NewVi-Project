@@ -97,7 +97,7 @@ function achievementToDatabase(pName, achievement1, achievement2, achievement3) 
 					var locAch1 = obj[i].achievement1;
 					var locAch2 = obj[i].achievement2;
 					var locAch3 = obj[i].achievement3;
-					
+					found = true;
 					if(achievement1 == true && achievement2 == true && achievement3 == true) {
 						$.ajax({
 							url: "https://api.mongolab.com/api/1/databases/newvi/collections/achievements?q={%22name%22:%22" + pName + "%22}&u=true&apiKey=yXsXCeqDNLQW5jM2X6kHO9RzosAJ2QWO",
@@ -163,7 +163,7 @@ function achievementToDatabase(pName, achievement1, achievement2, achievement3) 
 							contentType: "application/json"
 						});
 					}
-					found = true;
+					
 				}
 			}
 			// if the record is not found, create a new record
