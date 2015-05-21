@@ -39,8 +39,7 @@ function drawStartPanel(playerName) {
     * draw the achievement button()
     */
     function drawAchievementButton() {
-      drawButton(0.1, 0, 0.2, 0.2, '', 'black', 'red');
-	  drawImage(0, 0, 0.2, 0.2, 'Images/star-2.png');
+	  drawImage(0, 0.02, 0.15, 0.15, 'Images/star-2.png');
     }
 }
 /**
