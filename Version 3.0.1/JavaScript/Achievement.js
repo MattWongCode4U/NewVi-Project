@@ -31,7 +31,7 @@ function drawAchievement(name) {
 	*/
 	function achievementDescriptions(){
 		drawText(0.2, 0.35, 0.04, "5 in a Row", 'black');
-		drawText(0.5, 0.35, 0.04, "Level 10", 'black');
+		drawText(0.5, 0.35, 0.04, "Level 4", 'black');
 		drawText(0.8, 0.35, 0.04, "Perfect 8", 'black');
 	}
   }

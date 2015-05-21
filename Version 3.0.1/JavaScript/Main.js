@@ -50,8 +50,8 @@ function runGame() {
             level++; 
             answerArray = [];
             spotArray = [];
-            // achievement 2: reach level 10
-            if(level >= 10){
+            // achievement 2: reach level 4
+            if(level >= 4){
                 achievement2 = true;
             }
             //achievement 3: no lives lost and reached level 8
