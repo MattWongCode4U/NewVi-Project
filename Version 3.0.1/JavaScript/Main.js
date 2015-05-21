@@ -126,7 +126,7 @@ function runGame() {
         * Achievement panel event listener
         */
         function achievementPanelEventListener(event) {
-            if (eventListener(0.5, 0.75, 0.8, 0.15, event.offsetX, event.offsetY)) {
+            if (eventListener(0.5, 0.8, 0.6, 0.1, event.offsetX, event.offsetY)) {
                 clearCanvas();
                 drawStartPanel(playerName);
 				canvas.removeEventListener('click', achievementPanelEventListener);
