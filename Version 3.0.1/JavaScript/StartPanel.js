@@ -40,7 +40,7 @@ function drawStartPanel(playerName) {
     */
     function drawAchievementButton() {
       drawButton(0.1, 0, 0.2, 0.2, '', 'black', 'red');
-	  drawImage(0, 0, 0.20, 0.2, 'Images/star-2.png');
+	  drawImage(0, 0, 0.2, 0.2, 'Images/star-2.png');
     }
 }
 /**

@@ -11,11 +11,13 @@ function drawAchievement(name) {
   ctx.fillStyle = "#3CDFEF";
   drawAchievementTitle();
   drawHomeButton();
+  displayAchievements(name);
+  achievementDescriptions();
   /*
   * The title function of the page.
   */
   function drawAchievementTitle() {
-      drawText(0.5, 0.3, 0.065, name + '\'s Achievements', 'black');
+      drawText(0.5, 0.15, 0.065, name + '\'s Achievements', 'black');
   }
   /*
   * The home button.
@@ -24,5 +26,12 @@ function drawAchievement(name) {
         drawButton(0.5, 0.75, 0.8, 0.15, 'Home', 'white', 'blue');
     }
 	
-	
+	/*
+	*	Descriptions for the achievements.
+	*/
+	function achievementDescriptions(){
+		drawText(0.2, 0.35, 0.04, "5 in a Row", 'black');
+		drawText(0.5, 0.35, 0.04, "Level 10", 'black');
+		drawText(0.8, 0.35, 0.04, "Perfect 8", 'black');
+	}
   }
