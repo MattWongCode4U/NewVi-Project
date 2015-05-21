@@ -1,7 +1,7 @@
 /*
-* Draws the Acvhiment page
-* @Param Takes in a name which represents
-* a user and will display their achivements.
+* Draws the Achievement page
+* @param {name} Takes in a name which represents
+* a user and will display their achievements.
 */
 function drawAchievement(name) {
   // variables
@@ -23,4 +23,6 @@ function drawAchievement(name) {
   function drawHomeButton() {
         drawButton(0.5, 0.75, 0.8, 0.15, 'Home', 'white', 'blue');
     }
+	
+	
   }

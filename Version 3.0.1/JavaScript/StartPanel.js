@@ -9,7 +9,7 @@ function drawStartPanel(playerName) {
     drawPlayerName(playerName);
     drawLeaderBoardButton();
     drawStartButton();
-    drawAchivementButton();
+    drawAchievementButton();
 
     /**
     *   draw the title
@@ -36,10 +36,11 @@ function drawStartPanel(playerName) {
         drawButton(0.5, 0.75, 0.8, 0.15, 'Start', 'white', 'red');
     }
     /*
-    * draw the achivement button()
+    * draw the achievement button()
     */
-    function drawAchivementButton() {
-      drawButton(0.1, 0, 0.2, 0.2, 'G', 'black', 'red');
+    function drawAchievementButton() {
+      drawButton(0.1, 0, 0.2, 0.2, '', 'black', 'red');
+	  drawImage(0, 0, 0.20, 0.2, 'Images/star-2.png');
     }
 }
 /**

@@ -4,7 +4,8 @@
 *   @param {correct}    if the last answer is correct or not
 */
 function drawLevelPanel(level, correct) {
-    // variables 
+    clearCanvas();
+	// variables 
     var canvas = document.getElementById('game');
     var ctx = canvas.getContext('2d');
     
