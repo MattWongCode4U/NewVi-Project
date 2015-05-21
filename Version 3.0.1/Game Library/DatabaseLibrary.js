@@ -60,6 +60,7 @@ function displayAchievements(pName) {
 						drawImage(0.7, 0.45, 0.2, 0.2, "Images/cross.png");
 					}
 					found = true;
+					break;
 				}
 			}
 			if(found == false){
