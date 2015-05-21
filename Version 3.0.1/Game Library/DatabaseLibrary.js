@@ -64,6 +64,9 @@ function displayAchievements(pName) {
 			}
 			if(found == false){
 				alert("Could not find " + pName);
+				drawImage(0.1, 0.45, 0.2, 0.2, "Images/cross.png");
+				drawImage(0.4, 0.45, 0.2, 0.2, "Images/cross.png");
+				drawImage(0.7, 0.45, 0.2, 0.2, "Images/cross.png");
 			}
 		};
 	}
