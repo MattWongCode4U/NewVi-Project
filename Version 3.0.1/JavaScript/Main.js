@@ -5,6 +5,7 @@ function runGame() {
     // variables - canvas
     var canvas = document.getElementById("game");
 	var ctx = canvas.getContext("2d");
+    var canvasSize = window.innerHeight/2.2;
     var width = canvas.width;
     var height = canvas.height;
     
@@ -27,6 +28,7 @@ function runGame() {
     var streakCount = 0;
     // draw panels
     if(window.innerWidth > window.innerHeight) {
+        canvasSize = window.innerWidth/2.2;
     }
     if(canvasSize > 400) {
         canvasSize = 400;
